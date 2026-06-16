@@ -37,133 +37,139 @@ struct ProfileSetupView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: Spacing.lg) {
 
-                // Progress dots
-                HStack(spacing: Spacing.sm) {
-                    ForEach(Array(steps.enumerated()), id: \.offset) { i, step in
-                        VStack(spacing: 4) {
-                            Circle()
-                                .fill(i == 0 ? Color.brandGold : Color(.separator))
-                                .frame(width: 8, height: 8)
-                            Text(step)
-                                .font(AppFont.caption)
-                                .foregroundColor(i == 0 ? .brandGold : Color(.tertiaryLabel))
-                        }
-                        if i < steps.count - 1 {
-                            Rectangle()
-                                .fill(Color(.separator))
-                                .frame(height: 1)
-                                .frame(maxWidth: .infinity)
-                                .padding(.bottom, 12)
+                // Group 1 of 2: progress dots through branch search field (10 children)
+                Group {
+                    // Progress dots
+                    HStack(spacing: Spacing.sm) {
+                        ForEach(Array(steps.enumerated()), id: \.offset) { i, step in
+                            VStack(spacing: 4) {
+                                Circle()
+                                    .fill(i == 0 ? Color.brandGold : Color(.separator))
+                                    .frame(width: 8, height: 8)
+                                Text(step)
+                                    .font(AppFont.caption)
+                                    .foregroundColor(i == 0 ? .brandGold : Color(.tertiaryLabel))
+                            }
+                            if i < steps.count - 1 {
+                                Rectangle()
+                                    .fill(Color(.separator))
+                                    .frame(height: 1)
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.bottom, 12)
+                            }
                         }
                     }
-                }
-                .padding(.horizontal, Spacing.md)
+                    .padding(.horizontal, Spacing.md)
 
-                // Rank category
-                sectionHeader("RANK CATEGORY")
-                Picker("Rank Category", selection: $vm.rankCategory) {
-                    ForEach(Soldier.RankCategory.allCases, id: \.self) { Text($0.rawValue).tag($0) }
-                }
-                .pickerStyle(.segmented)
-                .onChange(of: vm.rankCategory) { _ in
-                    // Reset grade to the first valid option for the new category
-                    vm.updateGradeForCategory()
-                }
+                    // Rank category
+                    sectionHeader("RANK CATEGORY")
+                    Picker("Rank Category", selection: $vm.rankCategory) {
+                        ForEach(Soldier.RankCategory.allCases, id: \.self) { Text($0.rawValue).tag($0) }
+                    }
+                    .pickerStyle(.segmented)
+                    .onChange(of: vm.rankCategory, perform: { _ in
+                        vm.updateGradeForCategory()
+                    })
 
-                // Gender
-                sectionHeader("GENDER")
-                Picker("Gender", selection: $vm.gender) {
-                    ForEach(Soldier.Gender.allCases, id: \.self) { Text($0.rawValue).tag($0) }
-                }
-                .pickerStyle(.segmented)
+                    // Gender
+                    sectionHeader("GENDER")
+                    Picker("Gender", selection: $vm.gender) {
+                        ForEach(Soldier.Gender.allCases, id: \.self) { Text($0.rawValue).tag($0) }
+                    }
+                    .pickerStyle(.segmented)
 
-                // Grade
-                sectionHeader("GRADE")
-                TextField("Search grades...", text: $gradeSearch)
-                    .textFieldStyle(.roundedBorder)
-                    .font(AppFont.bodyPrimary)
+                    // Grade
+                    sectionHeader("GRADE")
+                    TextField("Search grades...", text: $gradeSearch)
+                        .textFieldStyle(.roundedBorder)
+                        .font(AppFont.bodyPrimary)
 
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: Spacing.sm) {
-                        ForEach(filteredGrades, id: \.self) { grade in
-                            Button(action: { vm.grade = grade }) {
-                                VStack(alignment: .leading, spacing: 2) {
-                                    Text(grade)
-                                        .font(AppFont.semiBold(14))
-                                    Text(vm.gradeTitle[grade] ?? "")
-                                        .font(AppFont.caption)
-                                        .lineLimit(2)
-                                        .multilineTextAlignment(.leading)
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: Spacing.sm) {
+                            ForEach(filteredGrades, id: \.self) { grade in
+                                Button(action: { vm.grade = grade }) {
+                                    VStack(alignment: .leading, spacing: 2) {
+                                        Text(grade)
+                                            .font(AppFont.semiBold(14))
+                                        Text(vm.gradeTitle[grade] ?? "")
+                                            .font(AppFont.caption)
+                                            .lineLimit(2)
+                                            .multilineTextAlignment(.leading)
+                                    }
+                                    .padding(Spacing.sm)
+                                    .frame(width: 120, alignment: .leading)
+                                    .background(vm.grade == grade ? Color.brandGold.opacity(0.2) : Color(.secondarySystemBackground))
+                                    .cornerRadius(Radius.sm)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: Radius.sm)
+                                            .stroke(vm.grade == grade ? Color.brandGold : Color.clear, lineWidth: 1.5)
+                                    )
                                 }
-                                .padding(Spacing.sm)
-                                .frame(width: 120, alignment: .leading)
-                                .background(vm.grade == grade ? Color.brandGold.opacity(0.2) : Color(.secondarySystemBackground))
-                                .cornerRadius(Radius.sm)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: Radius.sm)
-                                        .stroke(vm.grade == grade ? Color.brandGold : Color.clear, lineWidth: 1.5)
-                                )
+                                .foregroundColor(Color(.label))
+                            }
+                        }
+                    }
+
+                    // Branch
+                    sectionHeader("BRANCH")
+                    TextField("Search branches...", text: $branchSearch)
+                        .textFieldStyle(.roundedBorder)
+                        .font(AppFont.bodyPrimary)
+                } // end Group 1
+
+                // Group 2 of 2: branch grid through build button (5 children)
+                Group {
+                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: Spacing.sm) {
+                        ForEach(filteredBranches) { branch in
+                            Button(action: { vm.branch = branch.id }) {
+                                Text(branch.name)
+                                    .font(AppFont.regular(14))
+                                    .padding(Spacing.sm)
+                                    .frame(maxWidth: .infinity)
+                                    .background(vm.branch == branch.id ? Color.brandGold.opacity(0.2) : Color(.secondarySystemBackground))
+                                    .cornerRadius(Radius.sm)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: Radius.sm)
+                                            .stroke(vm.branch == branch.id ? Color.brandGold : Color.clear, lineWidth: 1.5)
+                                    )
                             }
                             .foregroundColor(Color(.label))
                         }
                     }
-                }
 
-                // Branch
-                sectionHeader("BRANCH")
-                TextField("Search branches...", text: $branchSearch)
-                    .textFieldStyle(.roundedBorder)
-                    .font(AppFont.bodyPrimary)
+                    // Component
+                    sectionHeader("COMPONENT")
+                    Picker("Component", selection: $vm.component) {
+                        ForEach(Soldier.Component.allCases, id: \.self) { Text($0.rawValue).tag($0) }
+                    }
+                    .pickerStyle(.segmented)
 
-                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: Spacing.sm) {
-                    ForEach(filteredBranches) { branch in
-                        Button(action: { vm.branch = branch.id }) {
-                            Text(branch.name)
-                                .font(AppFont.regular(14))
-                                .padding(Spacing.sm)
-                                .frame(maxWidth: .infinity)
-                                .background(vm.branch == branch.id ? Color.brandGold.opacity(0.2) : Color(.secondarySystemBackground))
-                                .cornerRadius(Radius.sm)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: Radius.sm)
-                                        .stroke(vm.branch == branch.id ? Color.brandGold : Color.clear, lineWidth: 1.5)
-                                )
+                    // Combat veteran toggle — affects CSIB and combat patch eligibility
+                    Toggle(isOn: $vm.isCombatVeteran) {
+                        VStack(alignment: .leading) {
+                            Text("COMBAT VETERAN")
+                                .font(AppFont.sectionHeader)
+                                .foregroundColor(Color(.secondaryLabel))
+                            Text("Affects combat patch eligibility")
+                                .font(AppFont.caption)
+                                .foregroundColor(Color(.tertiaryLabel))
                         }
-                        .foregroundColor(Color(.label))
                     }
-                }
+                    .tint(.brandGold)
 
-                // Component
-                sectionHeader("COMPONENT")
-                Picker("Component", selection: $vm.component) {
-                    ForEach(Soldier.Component.allCases, id: \.self) { Text($0.rawValue).tag($0) }
-                }
-                .pickerStyle(.segmented)
-
-                // Combat veteran toggle — affects CSIB and combat patch eligibility
-                Toggle(isOn: $vm.isCombatVeteran) {
-                    VStack(alignment: .leading) {
-                        Text("COMBAT VETERAN")
-                            .font(AppFont.sectionHeader)
-                            .foregroundColor(Color(.secondaryLabel))
-                        Text("Affects combat patch eligibility")
-                            .font(AppFont.caption)
-                            .foregroundColor(Color(.tertiaryLabel))
+                    // Continue to insignia selection
+                    NavigationLink(destination: BuilderFlowView(soldier: vm.soldier)) {
+                        Text("BUILD MY UNIFORM")
+                            .font(AppFont.buttonLabel)
+                            .foregroundColor(.black)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 52)
+                            .background(Color.brandGold)
+                            .cornerRadius(Radius.lg)
                     }
-                }
-                .tint(.brandGold)
+                    .padding(.top, Spacing.md)
+                } // end Group 2
 
-                // Continue to insignia selection
-                NavigationLink(destination: BuilderFlowView(soldier: vm.soldier)) {
-                    Text("BUILD MY UNIFORM")
-                        .font(AppFont.buttonLabel)
-                        .foregroundColor(.black)
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 52)
-                        .background(Color.brandGold)
-                        .cornerRadius(Radius.lg)
-                }
-                .padding(.top, Spacing.md)
             }
             .padding(Spacing.md)
         }
