@@ -1,0 +1,618 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA0000000000000000000101 /* AGSUBuilderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000100 /* AGSUBuilderApp.swift */; };
+		AA0000000000000000000103 /* Soldier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000102 /* Soldier.swift */; };
+		AA0000000000000000000105 /* UniformItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000104 /* UniformItem.swift */; };
+		AA0000000000000000000107 /* PlacedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000106 /* PlacedItem.swift */; };
+		AA0000000000000000000109 /* SavedUniform.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000108 /* SavedUniform.swift */; };
+		AA000000000000000000010B /* CoatGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000010A /* CoatGeometry.swift */; };
+		AA000000000000000000010D /* PlacementEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000010C /* PlacementEngine.swift */; };
+		AA000000000000000000010F /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000010E /* DataLoader.swift */; };
+		AA0000000000000000000111 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000110 /* ProfileViewModel.swift */; };
+		AA0000000000000000000113 /* InsigniaPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000112 /* InsigniaPickerViewModel.swift */; };
+		AA0000000000000000000115 /* CanvasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000114 /* CanvasViewModel.swift */; };
+		AA0000000000000000000117 /* SavedUniformsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000116 /* SavedUniformsViewModel.swift */; };
+		AA0000000000000000000119 /* DesignTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000118 /* DesignTokens.swift */; };
+		AA000000000000000000011B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000011A /* HomeView.swift */; };
+		AA000000000000000000011D /* ProfileSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000011C /* ProfileSetupView.swift */; };
+		AA000000000000000000011F /* BuilderFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000011E /* BuilderFlowView.swift */; };
+		AA0000000000000000000121 /* RibbonPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000120 /* RibbonPickerView.swift */; };
+		AA0000000000000000000123 /* BadgePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000122 /* BadgePickerView.swift */; };
+		AA0000000000000000000125 /* IDBadgePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000124 /* IDBadgePickerView.swift */; };
+		AA0000000000000000000127 /* TabPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000126 /* TabPickerView.swift */; };
+		AA0000000000000000000129 /* ServiceStripeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000128 /* ServiceStripeView.swift */; };
+		AA000000000000000000012B /* RankBranchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000012A /* RankBranchView.swift */; };
+		AA000000000000000000012D /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000012C /* CanvasView.swift */; };
+		AA000000000000000000012F /* CoatLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000012E /* CoatLayerView.swift */; };
+		AA0000000000000000000131 /* InsigniaLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000130 /* InsigniaLayerView.swift */; };
+		AA0000000000000000000133 /* MeasurementOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000132 /* MeasurementOverlayView.swift */; };
+		AA0000000000000000000135 /* ZoomPresetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000134 /* ZoomPresetView.swift */; };
+		AA0000000000000000000137 /* RegulationSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000136 /* RegulationSheetView.swift */; };
+		AA0000000000000000000139 /* AdjustModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000138 /* AdjustModeView.swift */; };
+		AA000000000000000000013B /* ExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000013A /* ExportView.swift */; };
+		AA000000000000000000013D /* SavedUniformsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000013C /* SavedUniformsView.swift */; };
+		AA0000000000000000000201 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000200 /* Assets.xcassets */; };
+		AA0000000000000000000205 /* ribbons.json in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000204 /* ribbons.json */; };
+		AA0000000000000000000207 /* badges.json in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000206 /* badges.json */; };
+		AA0000000000000000000209 /* tabs.json in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000208 /* tabs.json */; };
+		AA000000000000000000020B /* id_badges.json in Resources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000020A /* id_badges.json */; };
+		AA000000000000000000020D /* rank_insignia.json in Resources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000020C /* rank_insignia.json */; };
+		AA000000000000000000020F /* branch_insignia.json in Resources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000020E /* branch_insignia.json */; };
+		AA0000000000000000000211 /* service_stripes.json in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000210 /* service_stripes.json */; };
+		AA0000000000000000000213 /* overseas_bars.json in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000212 /* overseas_bars.json */; };
+		AA0000000000000000000215 /* regulation_version.json in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000214 /* regulation_version.json */; };
+		AA0000000000000000000301 /* BarlowCondensed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000300 /* BarlowCondensed-Light.ttf */; };
+		AA0000000000000000000303 /* BarlowCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000302 /* BarlowCondensed-Regular.ttf */; };
+		AA0000000000000000000305 /* BarlowCondensed-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000304 /* BarlowCondensed-SemiBold.ttf */; };
+		AA0000000000000000000307 /* BarlowCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000306 /* BarlowCondensed-Bold.ttf */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AA0000000000000000000100 /* AGSUBuilderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGSUBuilderApp.swift; sourceTree = "<group>"; };
+		AA0000000000000000000102 /* Soldier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soldier.swift; sourceTree = "<group>"; };
+		AA0000000000000000000104 /* UniformItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniformItem.swift; sourceTree = "<group>"; };
+		AA0000000000000000000106 /* PlacedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacedItem.swift; sourceTree = "<group>"; };
+		AA0000000000000000000108 /* SavedUniform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedUniform.swift; sourceTree = "<group>"; };
+		AA000000000000000000010A /* CoatGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoatGeometry.swift; sourceTree = "<group>"; };
+		AA000000000000000000010C /* PlacementEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacementEngine.swift; sourceTree = "<group>"; };
+		AA000000000000000000010E /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
+		AA0000000000000000000110 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		AA0000000000000000000112 /* InsigniaPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsigniaPickerViewModel.swift; sourceTree = "<group>"; };
+		AA0000000000000000000114 /* CanvasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasViewModel.swift; sourceTree = "<group>"; };
+		AA0000000000000000000116 /* SavedUniformsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedUniformsViewModel.swift; sourceTree = "<group>"; };
+		AA0000000000000000000118 /* DesignTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTokens.swift; sourceTree = "<group>"; };
+		AA000000000000000000011A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		AA000000000000000000011C /* ProfileSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetupView.swift; sourceTree = "<group>"; };
+		AA000000000000000000011E /* BuilderFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuilderFlowView.swift; sourceTree = "<group>"; };
+		AA0000000000000000000120 /* RibbonPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RibbonPickerView.swift; sourceTree = "<group>"; };
+		AA0000000000000000000122 /* BadgePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgePickerView.swift; sourceTree = "<group>"; };
+		AA0000000000000000000124 /* IDBadgePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDBadgePickerView.swift; sourceTree = "<group>"; };
+		AA0000000000000000000126 /* TabPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabPickerView.swift; sourceTree = "<group>"; };
+		AA0000000000000000000128 /* ServiceStripeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceStripeView.swift; sourceTree = "<group>"; };
+		AA000000000000000000012A /* RankBranchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankBranchView.swift; sourceTree = "<group>"; };
+		AA000000000000000000012C /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		AA000000000000000000012E /* CoatLayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoatLayerView.swift; sourceTree = "<group>"; };
+		AA0000000000000000000130 /* InsigniaLayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsigniaLayerView.swift; sourceTree = "<group>"; };
+		AA0000000000000000000132 /* MeasurementOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementOverlayView.swift; sourceTree = "<group>"; };
+		AA0000000000000000000134 /* ZoomPresetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomPresetView.swift; sourceTree = "<group>"; };
+		AA0000000000000000000136 /* RegulationSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegulationSheetView.swift; sourceTree = "<group>"; };
+		AA0000000000000000000138 /* AdjustModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustModeView.swift; sourceTree = "<group>"; };
+		AA000000000000000000013A /* ExportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportView.swift; sourceTree = "<group>"; };
+		AA000000000000000000013C /* SavedUniformsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedUniformsView.swift; sourceTree = "<group>"; };
+		AA0000000000000000000200 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AA0000000000000000000202 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA0000000000000000000204 /* ribbons.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ribbons.json; sourceTree = "<group>"; };
+		AA0000000000000000000206 /* badges.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = badges.json; sourceTree = "<group>"; };
+		AA0000000000000000000208 /* tabs.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tabs.json; sourceTree = "<group>"; };
+		AA000000000000000000020A /* id_badges.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = id_badges.json; sourceTree = "<group>"; };
+		AA000000000000000000020C /* rank_insignia.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = rank_insignia.json; sourceTree = "<group>"; };
+		AA000000000000000000020E /* branch_insignia.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = branch_insignia.json; sourceTree = "<group>"; };
+		AA0000000000000000000210 /* service_stripes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = service_stripes.json; sourceTree = "<group>"; };
+		AA0000000000000000000212 /* overseas_bars.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = overseas_bars.json; sourceTree = "<group>"; };
+		AA0000000000000000000214 /* regulation_version.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = regulation_version.json; sourceTree = "<group>"; };
+		AA0000000000000000000300 /* BarlowCondensed-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BarlowCondensed-Light.ttf"; sourceTree = "<group>"; };
+		AA0000000000000000000302 /* BarlowCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BarlowCondensed-Regular.ttf"; sourceTree = "<group>"; };
+		AA0000000000000000000304 /* BarlowCondensed-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BarlowCondensed-SemiBold.ttf"; sourceTree = "<group>"; };
+		AA0000000000000000000306 /* BarlowCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BarlowCondensed-Bold.ttf"; sourceTree = "<group>"; };
+		AA0000000000000000000400 /* AGSUBuilder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AGSUBuilder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AA0000000000000000000016 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AA0000000000000000000002 /* AGSUBuilder (root) */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000020 /* AGSUBuilder */,
+				AA0000000000000000000030 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000020 /* AGSUBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000021 /* App */,
+				AA0000000000000000000022 /* Models */,
+				AA0000000000000000000023 /* Engine */,
+				AA0000000000000000000024 /* Data */,
+				AA0000000000000000000025 /* ViewModels */,
+				AA0000000000000000000026 /* Views */,
+				AA0000000000000000000310 /* Resources */,
+				AA0000000000000000000200 /* Assets.xcassets */,
+				AA0000000000000000000202 /* Info.plist */,
+			);
+			path = AGSUBuilder;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000310 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000311 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000311 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000300 /* BarlowCondensed-Light.ttf */,
+				AA0000000000000000000302 /* BarlowCondensed-Regular.ttf */,
+				AA0000000000000000000304 /* BarlowCondensed-SemiBold.ttf */,
+				AA0000000000000000000306 /* BarlowCondensed-Bold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000021 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000100 /* AGSUBuilderApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000022 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000102 /* Soldier.swift */,
+				AA0000000000000000000104 /* UniformItem.swift */,
+				AA0000000000000000000106 /* PlacedItem.swift */,
+				AA0000000000000000000108 /* SavedUniform.swift */,
+				AA000000000000000000010A /* CoatGeometry.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000023 /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				AA000000000000000000010C /* PlacementEngine.swift */,
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000024 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				AA000000000000000000010E /* DataLoader.swift */,
+				AA0000000000000000000204 /* ribbons.json */,
+				AA0000000000000000000206 /* badges.json */,
+				AA0000000000000000000208 /* tabs.json */,
+				AA000000000000000000020A /* id_badges.json */,
+				AA000000000000000000020C /* rank_insignia.json */,
+				AA000000000000000000020E /* branch_insignia.json */,
+				AA0000000000000000000210 /* service_stripes.json */,
+				AA0000000000000000000212 /* overseas_bars.json */,
+				AA0000000000000000000214 /* regulation_version.json */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000025 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000110 /* ProfileViewModel.swift */,
+				AA0000000000000000000112 /* InsigniaPickerViewModel.swift */,
+				AA0000000000000000000114 /* CanvasViewModel.swift */,
+				AA0000000000000000000116 /* SavedUniformsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000026 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000118 /* DesignTokens.swift */,
+				AA0000000000000000000027 /* Home */,
+				AA0000000000000000000028 /* Onboarding */,
+				AA0000000000000000000029 /* Builder */,
+				AA000000000000000000002A /* Canvas */,
+				AA000000000000000000002B /* Adjust */,
+				AA000000000000000000002C /* Export */,
+				AA000000000000000000002D /* Saved */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000027 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				AA000000000000000000011A /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000028 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				AA000000000000000000011C /* ProfileSetupView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000029 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				AA000000000000000000011E /* BuilderFlowView.swift */,
+				AA0000000000000000000120 /* RibbonPickerView.swift */,
+				AA0000000000000000000122 /* BadgePickerView.swift */,
+				AA0000000000000000000124 /* IDBadgePickerView.swift */,
+				AA0000000000000000000126 /* TabPickerView.swift */,
+				AA0000000000000000000128 /* ServiceStripeView.swift */,
+				AA000000000000000000012A /* RankBranchView.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		AA000000000000000000002A /* Canvas */ = {
+			isa = PBXGroup;
+			children = (
+				AA000000000000000000012C /* CanvasView.swift */,
+				AA000000000000000000012E /* CoatLayerView.swift */,
+				AA0000000000000000000130 /* InsigniaLayerView.swift */,
+				AA0000000000000000000132 /* MeasurementOverlayView.swift */,
+				AA0000000000000000000134 /* ZoomPresetView.swift */,
+				AA0000000000000000000136 /* RegulationSheetView.swift */,
+			);
+			path = Canvas;
+			sourceTree = "<group>";
+		};
+		AA000000000000000000002B /* Adjust */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000138 /* AdjustModeView.swift */,
+			);
+			path = Adjust;
+			sourceTree = "<group>";
+		};
+		AA000000000000000000002C /* Export */ = {
+			isa = PBXGroup;
+			children = (
+				AA000000000000000000013A /* ExportView.swift */,
+			);
+			path = Export;
+			sourceTree = "<group>";
+		};
+		AA000000000000000000002D /* Saved */ = {
+			isa = PBXGroup;
+			children = (
+				AA000000000000000000013C /* SavedUniformsView.swift */,
+			);
+			path = Saved;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000030 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000400 /* AGSUBuilder.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AA0000000000000000000010 /* AGSUBuilder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA0000000000000000000011 /* Build configuration list for PBXNativeTarget "AGSUBuilder" */;
+			buildPhases = (
+				AA0000000000000000000014 /* Sources */,
+				AA0000000000000000000015 /* Resources */,
+				AA0000000000000000000016 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AGSUBuilder;
+			productName = AGSUBuilder;
+			productReference = AA0000000000000000000400 /* AGSUBuilder.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AA0000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					AA0000000000000000000010 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+				};
+			};
+			buildConfigurationList = AA0000000000000000000003 /* Build configuration list for PBXProject "AGSUBuilder" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AA0000000000000000000002;
+			productRefGroup = AA0000000000000000000030 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AA0000000000000000000010 /* AGSUBuilder */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AA0000000000000000000015 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA0000000000000000000201 /* Assets.xcassets in Resources */,
+				AA0000000000000000000205 /* ribbons.json in Resources */,
+				AA0000000000000000000207 /* badges.json in Resources */,
+				AA0000000000000000000209 /* tabs.json in Resources */,
+				AA000000000000000000020B /* id_badges.json in Resources */,
+				AA000000000000000000020D /* rank_insignia.json in Resources */,
+				AA000000000000000000020F /* branch_insignia.json in Resources */,
+				AA0000000000000000000211 /* service_stripes.json in Resources */,
+				AA0000000000000000000213 /* overseas_bars.json in Resources */,
+				AA0000000000000000000215 /* regulation_version.json in Resources */,
+				AA0000000000000000000301 /* BarlowCondensed-Light.ttf in Resources */,
+				AA0000000000000000000303 /* BarlowCondensed-Regular.ttf in Resources */,
+				AA0000000000000000000305 /* BarlowCondensed-SemiBold.ttf in Resources */,
+				AA0000000000000000000307 /* BarlowCondensed-Bold.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AA0000000000000000000014 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA0000000000000000000101 /* AGSUBuilderApp.swift in Sources */,
+				AA0000000000000000000103 /* Soldier.swift in Sources */,
+				AA0000000000000000000105 /* UniformItem.swift in Sources */,
+				AA0000000000000000000107 /* PlacedItem.swift in Sources */,
+				AA0000000000000000000109 /* SavedUniform.swift in Sources */,
+				AA000000000000000000010B /* CoatGeometry.swift in Sources */,
+				AA000000000000000000010D /* PlacementEngine.swift in Sources */,
+				AA000000000000000000010F /* DataLoader.swift in Sources */,
+				AA0000000000000000000111 /* ProfileViewModel.swift in Sources */,
+				AA0000000000000000000113 /* InsigniaPickerViewModel.swift in Sources */,
+				AA0000000000000000000115 /* CanvasViewModel.swift in Sources */,
+				AA0000000000000000000117 /* SavedUniformsViewModel.swift in Sources */,
+				AA0000000000000000000119 /* DesignTokens.swift in Sources */,
+				AA000000000000000000011B /* HomeView.swift in Sources */,
+				AA000000000000000000011D /* ProfileSetupView.swift in Sources */,
+				AA000000000000000000011F /* BuilderFlowView.swift in Sources */,
+				AA0000000000000000000121 /* RibbonPickerView.swift in Sources */,
+				AA0000000000000000000123 /* BadgePickerView.swift in Sources */,
+				AA0000000000000000000125 /* IDBadgePickerView.swift in Sources */,
+				AA0000000000000000000127 /* TabPickerView.swift in Sources */,
+				AA0000000000000000000129 /* ServiceStripeView.swift in Sources */,
+				AA000000000000000000012B /* RankBranchView.swift in Sources */,
+				AA000000000000000000012D /* CanvasView.swift in Sources */,
+				AA000000000000000000012F /* CoatLayerView.swift in Sources */,
+				AA0000000000000000000131 /* InsigniaLayerView.swift in Sources */,
+				AA0000000000000000000133 /* MeasurementOverlayView.swift in Sources */,
+				AA0000000000000000000135 /* ZoomPresetView.swift in Sources */,
+				AA0000000000000000000137 /* RegulationSheetView.swift in Sources */,
+				AA0000000000000000000139 /* AdjustModeView.swift in Sources */,
+				AA000000000000000000013B /* ExportView.swift in Sources */,
+				AA000000000000000000013D /* SavedUniformsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AA0000000000000000000004 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AA0000000000000000000005 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AA0000000000000000000012 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = AGSUBuilder/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.agsubuilder.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		AA0000000000000000000013 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = AGSUBuilder/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.agsubuilder.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AA0000000000000000000003 /* Build configuration list for PBXProject "AGSUBuilder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA0000000000000000000004 /* Debug */,
+				AA0000000000000000000005 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA0000000000000000000011 /* Build configuration list for PBXNativeTarget "AGSUBuilder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA0000000000000000000012 /* Debug */,
+				AA0000000000000000000013 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+	};
+	rootObject = AA0000000000000000000001 /* Project object */;
+}

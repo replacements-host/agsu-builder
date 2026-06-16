@@ -1,0 +1,170 @@
+[
+  {
+    "id": "infantry",
+    "name": "Infantry",
+    "imageAsset": "Branch/infantry",
+    "regulationRef": "DA PAM 670-1, para 21-9"
+  },
+  {
+    "id": "armor",
+    "name": "Armor",
+    "imageAsset": "Branch/armor",
+    "regulationRef": "DA PAM 670-1, para 21-9"
+  },
+  {
+    "id": "field_artillery",
+    "name": "Field Artillery",
+    "imageAsset": "Branch/field_artillery",
+    "regulationRef": "DA PAM 670-1, para 21-9"
+  },
+  {
+    "id": "aviation",
+    "name": "Aviation",
+    "imageAsset": "Branch/aviation",
+    "regulationRef": "DA PAM 670-1, para 21-9"
+  },
+  {
+    "id": "special_forces",
+    "name": "Special Forces",
+    "imageAsset": "Branch/special_forces",
+    "regulationRef": "DA PAM 670-1, para 21-9"
+  },
+  {
+    "id": "corps_of_engineers",
+    "name": "Corps of Engineers",
+    "imageAsset": "Branch/corps_of_engineers",
+    "regulationRef": "DA PAM 670-1, para 21-9"
+  },
+  {
+    "id": "air_defense_artillery",
+    "name": "Air Defense Artillery",
+    "imageAsset": "Branch/air_defense_artillery",
+    "regulationRef": "DA PAM 670-1, para 21-9"
+  },
+  {
+    "id": "signal_corps",
+    "name": "Signal Corps",
+    "imageAsset": "Branch/signal_corps",
+    "regulationRef": "DA PAM 670-1, para 21-9"
+  },
+  {
+    "id": "military_intelligence",
+    "name": "Military Intelligence",
+    "imageAsset": "Branch/military_intelligence",
+    "regulationRef": "DA PAM 670-1, para 21-9"
+  },
+  {
+    "id": "military_police",
+    "name": "Military Police",
+    "imageAsset": "Branch/military_police",
+    "regulationRef": "DA PAM 670-1, para 21-9"
+  },
+  {
+    "id": "ordnance",
+    "name": "Ordnance",
+    "imageAsset": "Branch/ordnance",
+    "regulationRef": "DA PAM 670-1, para 21-9"
+  },
+  {
+    "id": "quartermaster",
+    "name": "Quartermaster",
+    "imageAsset": "Branch/quartermaster",
+    "regulationRef": "DA PAM 670-1, para 21-9"
+  },
+  {
+    "id": "transportation",
+    "name": "Transportation",
+    "imageAsset": "Branch/transportation",
+    "regulationRef": "DA PAM 670-1, para 21-9"
+  },
+  {
+    "id": "adjutant_general",
+    "name": "Adjutant General",
+    "imageAsset": "Branch/adjutant_general",
+    "regulationRef": "DA PAM 670-1, para 21-9"
+  },
+  {
+    "id": "finance",
+    "name": "Finance",
+    "imageAsset": "Branch/finance",
+    "regulationRef": "DA PAM 670-1, para 21-9"
+  },
+  {
+    "id": "chemical",
+    "name": "Chemical",
+    "imageAsset": "Branch/chemical",
+    "regulationRef": "DA PAM 670-1, para 21-9"
+  },
+  {
+    "id": "medical",
+    "name": "Medical Corps",
+    "imageAsset": "Branch/medical",
+    "regulationRef": "DA PAM 670-1, para 21-9"
+  },
+  {
+    "id": "chaplain",
+    "name": "Chaplain Corps",
+    "imageAsset": "Branch/chaplain",
+    "regulationRef": "DA PAM 670-1, para 21-9"
+  },
+  {
+    "id": "judge_advocate",
+    "name": "Judge Advocate General's Corps",
+    "imageAsset": "Branch/judge_advocate",
+    "regulationRef": "DA PAM 670-1, para 21-9"
+  },
+  {
+    "id": "civil_affairs",
+    "name": "Civil Affairs",
+    "imageAsset": "Branch/civil_affairs",
+    "regulationRef": "DA PAM 670-1, para 21-9"
+  },
+  {
+    "id": "psychological_operations",
+    "name": "Psychological Operations",
+    "imageAsset": "Branch/psychological_operations",
+    "regulationRef": "DA PAM 670-1, para 21-9"
+  },
+  {
+    "id": "dental_corps",
+    "name": "Dental Corps",
+    "imageAsset": "Branch/dental_corps",
+    "regulationRef": "DA PAM 670-1, para 21-6"
+  },
+  {
+    "id": "army_nurse_corps",
+    "name": "Army Nurse Corps",
+    "imageAsset": "Branch/army_nurse_corps",
+    "regulationRef": "DA PAM 670-1, para 21-6"
+  },
+  {
+    "id": "medical_service_corps",
+    "name": "Medical Service Corps",
+    "imageAsset": "Branch/medical_service_corps",
+    "regulationRef": "DA PAM 670-1, para 21-6"
+  },
+  {
+    "id": "medical_specialist_corps",
+    "name": "Medical Specialist Corps",
+    "imageAsset": "Branch/medical_specialist_corps",
+    "regulationRef": "DA PAM 670-1, para 21-6"
+  },
+  {
+    "id": "veterinary_corps",
+    "name": "Veterinary Corps",
+    "imageAsset": "Branch/veterinary_corps",
+    "regulationRef": "DA PAM 670-1, para 21-6"
+  },
+  {
+    "id": "cyber_corps",
+    "name": "Cyber Corps",
+    "imageAsset": "Branch/cyber_corps",
+    "regulationRef": "DA PAM 670-1, para 21-6"
+  },
+  {
+    "id": "usar",
+    "name": "U.S. Army Reserve",
+    "imageAsset": "Branch/usar",
+    "regulationRef": "DA PAM 670-1, para 21-6"
+  }
+]
