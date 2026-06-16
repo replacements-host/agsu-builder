@@ -1,0 +1,58 @@
+[
+  {
+    "id": "drill_sergeant_badge",
+    "name": "Drill Sergeant Identification Badge",
+    "imageAsset": "Badges/ID/drill_sergeant",
+    "pocketSide": "left",
+    "eligibleComponents": ["active", "reserve", "guard"],
+    "regulationRef": "DA PAM 670-1, para 22-17"
+  },
+  {
+    "id": "recruiter_badge",
+    "name": "Recruiter Identification Badge",
+    "imageAsset": "Badges/ID/recruiter",
+    "pocketSide": "left",
+    "eligibleComponents": ["active", "reserve", "guard"],
+    "regulationRef": "DA PAM 670-1, para 22-17"
+  },
+  {
+    "id": "career_counselor_badge",
+    "name": "Career Counselor Identification Badge",
+    "imageAsset": "Badges/ID/career_counselor",
+    "pocketSide": "left",
+    "eligibleComponents": ["active", "reserve", "guard"],
+    "regulationRef": "DA PAM 670-1, para 22-17"
+  },
+  {
+    "id": "instructor_badge",
+    "name": "Instructor Identification Badge",
+    "imageAsset": "Badges/ID/instructor",
+    "pocketSide": "left",
+    "eligibleComponents": ["active", "reserve", "guard"],
+    "regulationRef": "DA PAM 670-1, para 22-17"
+  },
+  {
+    "id": "combat_service_id_badge",
+    "name": "Combat Service Identification Badge (CSIB)",
+    "imageAsset": "Badges/ID/csib",
+    "pocketSide": "right",
+    "eligibleComponents": ["active", "reserve", "guard"],
+    "regulationRef": "DA PAM 670-1, para 22-17"
+  },
+  {
+    "id": "presidential_service_badge",
+    "name": "Presidential Service Badge",
+    "imageAsset": "Badges/ID/presidential_service",
+    "pocketSide": "left",
+    "eligibleComponents": ["active", "reserve", "guard"],
+    "regulationRef": "DA PAM 670-1, para 22-17"
+  },
+  {
+    "id": "army_staff_badge",
+    "name": "Army Staff Identification Badge",
+    "imageAsset": "Badges/ID/army_staff",
+    "pocketSide": "left",
+    "eligibleComponents": ["active"],
+    "regulationRef": "DA PAM 670-1, para 22-17"
+  }
+]

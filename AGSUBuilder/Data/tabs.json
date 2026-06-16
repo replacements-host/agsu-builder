@@ -1,0 +1,50 @@
+[
+  {
+    "id": "ranger_tab",
+    "name": "Ranger Tab",
+    "imageAsset": "Tabs/ranger_tab",
+    "sleevePosition": "upper_left",
+    "stackOrder": 1,
+    "regulationRef": "DA PAM 670-1, para 22-16d"
+  },
+  {
+    "id": "special_forces_tab",
+    "name": "Special Forces Tab",
+    "imageAsset": "Tabs/special_forces_tab",
+    "sleevePosition": "upper_left",
+    "stackOrder": 2,
+    "regulationRef": "DA PAM 670-1, para 22-16d"
+  },
+  {
+    "id": "sapper_tab",
+    "name": "Sapper Tab",
+    "imageAsset": "Tabs/sapper_tab",
+    "sleevePosition": "upper_left",
+    "stackOrder": 3,
+    "regulationRef": "DA PAM 670-1, para 22-16d"
+  },
+  {
+    "id": "jungle_tab",
+    "name": "Jungle Tab",
+    "imageAsset": "Tabs/jungle_tab",
+    "sleevePosition": "upper_left",
+    "stackOrder": 4,
+    "regulationRef": "DA PAM 670-1, para 22-16d"
+  },
+  {
+    "id": "arctic_tab",
+    "name": "Arctic Tab",
+    "imageAsset": "Tabs/arctic_tab",
+    "sleevePosition": "upper_left",
+    "stackOrder": 5,
+    "regulationRef": "DA PAM 670-1, para 22-16d"
+  },
+  {
+    "id": "presidents_hundred_tab",
+    "name": "President's Hundred Tab",
+    "imageAsset": "Tabs/presidents_hundred_tab",
+    "sleevePosition": "upper_left",
+    "stackOrder": 6,
+    "regulationRef": "DA PAM 670-1, para 22-16d"
+  }
+]
