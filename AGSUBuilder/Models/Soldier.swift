@@ -23,7 +23,7 @@ struct Soldier {
     enum Component: String, CaseIterable {
         case active  = "Active"
         case reserve = "Reserve"
-        case guard   = "Guard"
+        case `guard` = "Guard"
 
         /// Lowercase string used as a JSON filter key.
         var jsonKey: String { rawValue.lowercased() }

@@ -158,8 +158,10 @@ struct CanvasView: View {
     }
 }
 
-#Preview {
-    NavigationStack {
-        CanvasView(soldier: .default, items: [])
+struct CanvasView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationStack {
+            CanvasView(soldier: .default, items: [])
+        }
     }
 }

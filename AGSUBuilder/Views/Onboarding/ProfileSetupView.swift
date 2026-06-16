@@ -181,6 +181,8 @@ struct ProfileSetupView: View {
     }
 }
 
-#Preview {
-    NavigationStack { ProfileSetupView() }
+struct ProfileSetupView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationStack { ProfileSetupView() }
+    }
 }

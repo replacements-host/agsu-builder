@@ -166,15 +166,17 @@ struct CoatLayerView: View {
     }
 }
 
-#Preview {
-    VStack(spacing: 20) {
-        CoatLayerView(geometry: .male)
-            .frame(width: 240, height: 240 / 0.62)
-            .border(Color.red.opacity(0.3))
+struct CoatLayerView_Previews: PreviewProvider {
+    static var previews: some View {
+        VStack(spacing: 20) {
+            CoatLayerView(geometry: .male)
+                .frame(width: 240, height: 240 / 0.62)
+                .border(Color.red.opacity(0.3))
 
-        CoatLayerView(geometry: .female)
-            .frame(width: 220, height: 220 / 0.58)
-            .border(Color.blue.opacity(0.3))
+            CoatLayerView(geometry: .female)
+                .frame(width: 220, height: 220 / 0.58)
+                .border(Color.blue.opacity(0.3))
+        }
+        .padding()
     }
-    .padding()
 }
