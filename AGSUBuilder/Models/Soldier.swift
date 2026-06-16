@@ -75,42 +75,25 @@ struct Soldier {
 
 // MARK: - CoatVariant
 
-/// The four distinct AGSU coat silhouettes referenced in DA PAM 670-1,
-/// Figures 14-1 through 14-4. Each variant has its own:
-/// - Asset name (gray placeholder PNG until replaced by real artwork)
-/// - Human-readable label for the fallback view
-/// - Calibrated (or placeholder) `CoatGeometry`
+/// The four AGSU coat silhouette variants referenced in DA PAM 670-1,
+/// Figures 14-1 through 14-4.
+///
+/// There is **no `assetName` property** — the coat is not an image asset. It is
+/// drawn at runtime by `CoatLayerView` using the `Path` geometry in `CoatGeometry`.
+///
+/// Officer and enlisted share the same coat *cut* per gender (only insignia placement
+/// rules differ — those live in `PlacementEngine`). The four cases are kept as
+/// separate enum values because `PlacementEngine` branches on rank category
+/// independently of coat geometry.
 enum CoatVariant: String {
     case officerMale, officerFemale, enlistedMale, enlistedFemale
 
-    /// Asset catalog name inside `Assets.xcassets/Coat/`.
-    var assetName: String {
-        switch self {
-        case .officerMale:    return "fig14_1_officer_male"
-        case .officerFemale:  return "fig14_2_officer_female"
-        case .enlistedMale:   return "fig14_3_enlisted_male"
-        case .enlistedFemale: return "fig14_4_enlisted_female"
-        }
-    }
-
-    /// Short label displayed on the gray placeholder when no coat image is found.
-    var displayLabel: String {
-        switch self {
-        case .officerMale:    return "Officer Male Coat"
-        case .officerFemale:  return "Officer Female Coat"
-        case .enlistedMale:   return "Enlisted Male Coat"
-        case .enlistedFemale: return "Enlisted Female Coat"
-        }
-    }
-
-    /// Normalized anchor-point geometry for this coat.
-    /// Values are PLACEHOLDER presets — do not calibrate in code.
+    /// Returns the coat drawing and insignia placement geometry for this variant.
+    /// Officer and enlisted share the same geometry per gender.
     var geometry: CoatGeometry {
         switch self {
-        case .officerMale:    return CoatGeometry.officerMale
-        case .officerFemale:  return CoatGeometry.officerFemale
-        case .enlistedMale:   return CoatGeometry.enlistedMale
-        case .enlistedFemale: return CoatGeometry.enlistedFemale
+        case .officerMale, .enlistedMale:     return CoatGeometry.male
+        case .officerFemale, .enlistedFemale: return CoatGeometry.female
         }
     }
 }

@@ -51,13 +51,8 @@ CATEGORY_SIZES = {
     "Coat":          (300, 420),
 }
 
-# ── Coat base images (no imageAsset key in JSON — referenced directly) ─────
-COAT_ASSETS = [
-    "Coat/fig14_1_officer_male",
-    "Coat/fig14_2_officer_female",
-    "Coat/fig14_3_enlisted_male",
-    "Coat/fig14_4_enlisted_female",
-]
+# The coat is drawn as SwiftUI vector paths at runtime from CoatGeometry —
+# there are no coat image assets to generate.
 
 
 # ── PNG helpers ────────────────────────────────────────────────────────────
@@ -158,7 +153,7 @@ def main():
     os.chdir(repo_root)
 
     asset_paths = collect_asset_paths()
-    all_paths = asset_paths + COAT_ASSETS
+    all_paths = asset_paths
 
     print(f"Generating {len(all_paths)} placeholder imagesets …")
 

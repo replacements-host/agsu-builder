@@ -58,7 +58,7 @@ struct CanvasView: View {
                 let canvasSize = CGSize(width: geo.size.width, height: geo.size.height)
 
                 ZStack {
-                    CoatLayerView(coatVariant: soldier.coatVariant)
+                    CoatLayerView(geometry: soldier.coatVariant.geometry)
 
                     InsigniaLayerView(
                         placedItems:    vm.placedItems,
