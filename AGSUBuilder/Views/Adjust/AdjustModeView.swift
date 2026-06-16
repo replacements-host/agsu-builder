@@ -69,7 +69,7 @@ struct AdjustModeView: View {
             // Mini canvas (tap to select items)
             GeometryReader { geo in
                 ZStack {
-                    CoatLayerView(coatVariant: vm.soldier.coatVariant)
+                    CoatLayerView(geometry: vm.soldier.coatVariant.geometry)
                     InsigniaLayerView(
                         placedItems:    vm.placedItems,
                         selectedItemID: vm.selectedPlacedItem?.id,
