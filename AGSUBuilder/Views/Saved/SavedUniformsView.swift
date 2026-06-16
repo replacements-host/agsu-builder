@@ -1,26 +1,18 @@
 import SwiftUI
-import SwiftData
 
 /// Lists all saved uniforms in reverse-update order.
 ///
-/// Backed by a `@Query` (not by `SavedUniformsViewModel.uniforms`) so SwiftData
-/// automatically keeps the list in sync with the store. Write operations
-/// (delete, rename) are delegated to `SavedUniformsViewModel` which requires
-/// a `ModelContext` from the environment.
+/// The uniform list is owned by `SavedUniformsViewModel`, which is injected as an
+/// `@EnvironmentObject` from `AGSUBuilderApp`. Write operations (delete, rename)
+/// are delegated to that same view model so all views stay in sync automatically.
 ///
 /// **Interactions:**
 /// - **Tap** — navigates to `CanvasView` re-loaded from the saved soldier profile.
 /// - **Long press** — presents a rename alert.
 /// - **Swipe to delete** — removes the uniform from the store immediately.
-///
-/// The empty state view is shown automatically when the `@Query` result is empty.
 struct SavedUniformsView: View {
 
-    /// Fetched results sorted by `updatedAt` descending (most recent first).
-    @Query(sort: \SavedUniform.updatedAt, order: .reverse) private var uniforms: [SavedUniform]
-    @Environment(\.modelContext) private var modelContext
-
-    @StateObject private var vm = SavedUniformsViewModel()
+    @EnvironmentObject private var savedVM: SavedUniformsViewModel
 
     @State private var renameTarget: SavedUniform? = nil
     @State private var renameText   = ""
@@ -28,16 +20,16 @@ struct SavedUniformsView: View {
 
     var body: some View {
         Group {
-            if uniforms.isEmpty {
+            if savedVM.uniforms.isEmpty {
                 emptyState
             } else {
                 List {
-                    ForEach(uniforms) { uniform in
+                    ForEach(savedVM.uniforms) { uniform in
                         uniformRow(uniform)
                             .listRowBackground(Color(.secondarySystemBackground))
                     }
                     .onDelete { indexSet in
-                        indexSet.forEach { vm.delete(uniforms[$0], context: modelContext) }
+                        indexSet.forEach { savedVM.delete(savedVM.uniforms[$0]) }
                     }
                 }
                 .listStyle(.plain)
@@ -53,7 +45,7 @@ struct SavedUniformsView: View {
             TextField("Name", text: $renameText)
             Button("Save") {
                 if let target = renameTarget {
-                    vm.rename(target, to: renameText, context: modelContext)
+                    savedVM.rename(target, to: renameText)
                 }
                 renameTarget = nil
             }

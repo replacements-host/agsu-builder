@@ -1,19 +1,18 @@
 import Foundation
-import SwiftData
 
-/// SwiftData model representing a persisted uniform configuration.
+/// A persisted uniform configuration.
 ///
-/// SwiftData requires all stored properties to be basic value types (String, Int, Bool,
-/// Date, UUID). Complex types (`Soldier`, `UniformItem`, `UniformConfiguration`) are
-/// encoded as JSON strings and decoded on demand via the `toX()` helper methods.
+/// Stored as a plain `Codable` struct and written to a JSON file in the app's
+/// Documents directory by `SavedUniformsViewModel`. Using a flat file instead of
+/// SwiftData keeps the minimum deployment target at iOS 16 and avoids the
+/// `@Model` macro, which requires iOS 17+.
 ///
-/// Schema rationale — flat fields vs. JSON blobs:
-/// - Soldier profile fields are stored flat so they can be displayed in list rows
+/// Schema note — flat soldier fields vs. JSON blobs:
+/// - Soldier profile fields are stored flat so list rows can display grade/branch
 ///   without deserializing the full item payload.
-/// - Items and adjustments are stored as JSON strings because SwiftData does not
-///   support nested `Codable` types in the same model container without custom migration.
-@Model
-class SavedUniform {
+/// - Items and adjustments are stored as JSON strings because the item graph
+///   does not need relational querying — the whole payload is always loaded together.
+struct SavedUniform: Codable, Identifiable {
 
     // MARK: - Identity
 

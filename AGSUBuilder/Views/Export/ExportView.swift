@@ -1,7 +1,6 @@
 import SwiftUI
-import SwiftData
 
-/// Offers four export formats plus uniform saving to SwiftData.
+/// Offers four export formats plus uniform saving.
 ///
 /// **Export options:**
 /// 1. **PDF Spec Sheet** — `UIGraphicsPDFRenderer` generates an 8.5×11" page with the
@@ -11,17 +10,16 @@ import SwiftData
 /// 4. **Share to Unit** — Passes a `UIImage` to the iOS share sheet.
 ///
 /// All export options funnel through `UIActivityViewController` via the `ShareSheet` wrapper.
-/// Saving a uniform inserts a new `SavedUniform` into the SwiftData model context.
+/// Saving a uniform delegates to the shared `SavedUniformsViewModel` environment object.
 struct ExportView: View {
 
     @ObservedObject var vm: CanvasViewModel
-    @Environment(\.modelContext) private var modelContext
+    @EnvironmentObject private var savedVM: SavedUniformsViewModel
 
     @State private var showShareSheet  = false
     @State private var showSaveDialog  = false
     @State private var uniformName     = ""
     @State private var shareItems: [Any] = []
-    @StateObject private var savedVM = SavedUniformsViewModel()
 
     var body: some View {
         List {
@@ -30,7 +28,7 @@ struct ExportView: View {
             Section {
                 GeometryReader { geo in
                     ZStack {
-                        CoatLayerView(coatVariant: vm.soldier.coatVariant)
+                        CoatLayerView(geometry: vm.soldier.coatVariant.geometry)
                         InsigniaLayerView(
                             placedItems:    vm.placedItems,
                             selectedItemID: nil,
@@ -123,7 +121,7 @@ struct ExportView: View {
                 let name = uniformName.isEmpty
                     ? "\(vm.soldier.grade) · \(Date().formatted(date: .abbreviated, time: .omitted))"
                     : uniformName
-                savedVM.save(canvasVM: vm, name: name, context: modelContext)
+                savedVM.save(canvasVM: vm, name: name)
                 uniformName = ""
             }
             Button("Cancel", role: .cancel) {}
@@ -188,7 +186,7 @@ struct ExportView: View {
     private func renderCanvasImage() -> UIImage {
         let renderer = ImageRenderer(content:
             ZStack {
-                CoatLayerView(coatVariant: vm.soldier.coatVariant)
+                CoatLayerView(geometry: vm.soldier.coatVariant.geometry)
                 InsigniaLayerView(
                     placedItems:    vm.placedItems,
                     selectedItemID: nil,
