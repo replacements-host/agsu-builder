@@ -1,362 +1,2178 @@
 [
   {
-    "id": "medal_of_honor",
+    "id": "moh",
     "name": "Medal of Honor",
     "shortName": "MOH",
     "precedence": 1,
-    "category": "decoration",
-    "imageAsset": "Ribbons/medal_of_honor",
+    "category": "ribbon",
+    "imageAsset": "Ribbons/moh",
     "authorizedDevices": [],
     "devicesOrientedToWearer": false,
-    "eligibleComponents": ["active", "reserve", "guard"],
-    "regulationRef": "DA PAM 670-1, para 22-5a(1)"
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5a"
   },
   {
-    "id": "distinguished_service_cross",
+    "id": "dsc",
     "name": "Distinguished Service Cross",
     "shortName": "DSC",
     "precedence": 2,
-    "category": "decoration",
-    "imageAsset": "Ribbons/distinguished_service_cross",
-    "authorizedDevices": ["oak_leaf_cluster"],
+    "category": "ribbon",
+    "imageAsset": "Ribbons/dsc",
+    "authorizedDevices": [],
     "devicesOrientedToWearer": false,
-    "eligibleComponents": ["active", "reserve", "guard"],
-    "regulationRef": "DA PAM 670-1, para 22-5a(2)"
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5a"
   },
   {
-    "id": "defense_distinguished_service_medal",
+    "id": "nx",
+    "name": "Navy Cross",
+    "shortName": "NX",
+    "precedence": 3,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/nx",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5a"
+  },
+  {
+    "id": "afc",
+    "name": "Air Force Cross",
+    "shortName": "AFC",
+    "precedence": 4,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/afc",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5a"
+  },
+  {
+    "id": "cgx",
+    "name": "Coast Guard Cross",
+    "shortName": "CGX",
+    "precedence": 5,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/cgx",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5a"
+  },
+  {
+    "id": "ddsm",
     "name": "Defense Distinguished Service Medal",
     "shortName": "DDSM",
-    "precedence": 3,
-    "category": "decoration",
-    "imageAsset": "Ribbons/defense_distinguished_service_medal",
-    "authorizedDevices": ["oak_leaf_cluster"],
+    "precedence": 6,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/ddsm",
+    "authorizedDevices": [],
     "devicesOrientedToWearer": false,
-    "eligibleComponents": ["active", "reserve", "guard"],
-    "regulationRef": "DA PAM 670-1, para 22-5a(3)"
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5a"
   },
   {
-    "id": "distinguished_service_medal",
+    "id": "dsm",
     "name": "Distinguished Service Medal",
     "shortName": "DSM",
-    "precedence": 4,
-    "category": "decoration",
-    "imageAsset": "Ribbons/distinguished_service_medal",
-    "authorizedDevices": ["oak_leaf_cluster"],
+    "precedence": 7,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/dsm",
+    "authorizedDevices": [],
     "devicesOrientedToWearer": false,
-    "eligibleComponents": ["active", "reserve", "guard"],
-    "regulationRef": "DA PAM 670-1, para 22-5a(4)"
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5a"
   },
   {
-    "id": "silver_star",
+    "id": "ss",
     "name": "Silver Star",
     "shortName": "SS",
-    "precedence": 5,
-    "category": "decoration",
-    "imageAsset": "Ribbons/silver_star",
-    "authorizedDevices": ["oak_leaf_cluster", "v_device"],
+    "precedence": 8,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/ss",
+    "authorizedDevices": [],
     "devicesOrientedToWearer": false,
-    "eligibleComponents": ["active", "reserve", "guard"],
-    "regulationRef": "DA PAM 670-1, para 22-5a(5)"
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5a"
   },
   {
-    "id": "defense_superior_service_medal",
+    "id": "dssm",
     "name": "Defense Superior Service Medal",
     "shortName": "DSSM",
-    "precedence": 6,
-    "category": "decoration",
-    "imageAsset": "Ribbons/defense_superior_service_medal",
-    "authorizedDevices": ["oak_leaf_cluster"],
+    "precedence": 9,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/dssm",
+    "authorizedDevices": [],
     "devicesOrientedToWearer": false,
-    "eligibleComponents": ["active", "reserve", "guard"],
-    "regulationRef": "DA PAM 670-1, para 22-5a(6)"
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5a"
   },
   {
-    "id": "legion_of_merit",
+    "id": "lom",
     "name": "Legion of Merit",
     "shortName": "LOM",
-    "precedence": 7,
-    "category": "decoration",
-    "imageAsset": "Ribbons/legion_of_merit",
-    "authorizedDevices": ["oak_leaf_cluster"],
+    "precedence": 10,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/lom",
+    "authorizedDevices": [],
     "devicesOrientedToWearer": false,
-    "eligibleComponents": ["active", "reserve", "guard"],
-    "regulationRef": "DA PAM 670-1, para 22-5a(7)"
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5a"
   },
   {
-    "id": "distinguished_flying_cross",
+    "id": "dfc",
     "name": "Distinguished Flying Cross",
     "shortName": "DFC",
-    "precedence": 8,
-    "category": "decoration",
-    "imageAsset": "Ribbons/distinguished_flying_cross",
-    "authorizedDevices": ["oak_leaf_cluster", "v_device"],
+    "precedence": 11,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/dfc",
+    "authorizedDevices": [],
     "devicesOrientedToWearer": false,
-    "eligibleComponents": ["active", "reserve", "guard"],
-    "regulationRef": "DA PAM 670-1, para 22-5a(8)"
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5a"
   },
   {
-    "id": "soldiers_medal",
+    "id": "sm",
     "name": "Soldier's Medal",
     "shortName": "SM",
-    "precedence": 9,
-    "category": "decoration",
-    "imageAsset": "Ribbons/soldiers_medal",
-    "authorizedDevices": ["oak_leaf_cluster"],
+    "precedence": 12,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/sm",
+    "authorizedDevices": [],
     "devicesOrientedToWearer": false,
-    "eligibleComponents": ["active", "reserve", "guard"],
-    "regulationRef": "DA PAM 670-1, para 22-5a(9)"
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5a"
   },
   {
-    "id": "bronze_star_medal",
+    "id": "nmcm",
+    "name": "Navy and Marine Corps Medal",
+    "shortName": "NMCM",
+    "precedence": 13,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/nmcm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5a"
+  },
+  {
+    "id": "am_af",
+    "name": "Airman's Medal",
+    "shortName": "AM_AF",
+    "precedence": 14,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/am_af",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5a"
+  },
+  {
+    "id": "cgm",
+    "name": "Coast Guard Medal",
+    "shortName": "CGM",
+    "precedence": 15,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/cgm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5a"
+  },
+  {
+    "id": "bsm",
     "name": "Bronze Star Medal",
     "shortName": "BSM",
-    "precedence": 10,
-    "category": "decoration",
-    "imageAsset": "Ribbons/bronze_star_medal",
-    "authorizedDevices": ["oak_leaf_cluster", "v_device"],
+    "precedence": 16,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/bsm",
+    "authorizedDevices": [],
     "devicesOrientedToWearer": false,
-    "eligibleComponents": ["active", "reserve", "guard"],
-    "regulationRef": "DA PAM 670-1, para 22-5a(10)"
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5a"
   },
   {
-    "id": "purple_heart",
+    "id": "ph",
     "name": "Purple Heart",
     "shortName": "PH",
-    "precedence": 11,
-    "category": "decoration",
-    "imageAsset": "Ribbons/purple_heart",
-    "authorizedDevices": ["oak_leaf_cluster"],
+    "precedence": 17,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/ph",
+    "authorizedDevices": [],
     "devicesOrientedToWearer": false,
-    "eligibleComponents": ["active", "reserve", "guard"],
-    "regulationRef": "DA PAM 670-1, para 22-5a(11)"
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5a"
   },
   {
-    "id": "defense_meritorious_service_medal",
+    "id": "dmsm",
     "name": "Defense Meritorious Service Medal",
     "shortName": "DMSM",
-    "precedence": 12,
-    "category": "decoration",
-    "imageAsset": "Ribbons/defense_meritorious_service_medal",
-    "authorizedDevices": ["oak_leaf_cluster"],
+    "precedence": 18,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/dmsm",
+    "authorizedDevices": [],
     "devicesOrientedToWearer": false,
-    "eligibleComponents": ["active", "reserve", "guard"],
-    "regulationRef": "DA PAM 670-1, para 22-5a(12)"
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5a"
   },
   {
-    "id": "meritorious_service_medal",
+    "id": "msm",
     "name": "Meritorious Service Medal",
     "shortName": "MSM",
-    "precedence": 13,
-    "category": "decoration",
-    "imageAsset": "Ribbons/meritorious_service_medal",
-    "authorizedDevices": ["oak_leaf_cluster"],
+    "precedence": 19,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/msm",
+    "authorizedDevices": [],
     "devicesOrientedToWearer": false,
-    "eligibleComponents": ["active", "reserve", "guard"],
-    "regulationRef": "DA PAM 670-1, para 22-5a(13)"
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5a"
   },
   {
-    "id": "air_medal",
+    "id": "am",
     "name": "Air Medal",
     "shortName": "AM",
-    "precedence": 14,
-    "category": "decoration",
-    "imageAsset": "Ribbons/air_medal",
-    "authorizedDevices": ["oak_leaf_cluster", "v_device", "numeral"],
-    "devicesOrientedToWearer": false,
-    "eligibleComponents": ["active", "reserve", "guard"],
-    "regulationRef": "DA PAM 670-1, para 22-5a(14)"
+    "precedence": 20,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/am",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": true,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5a"
   },
   {
-    "id": "joint_service_commendation_medal",
+    "id": "aam_af",
+    "name": "Aerial Achievement Medal",
+    "shortName": "AAM_AF",
+    "precedence": 21,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/aam_af",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5a"
+  },
+  {
+    "id": "jscm",
     "name": "Joint Service Commendation Medal",
     "shortName": "JSCM",
-    "precedence": 15,
-    "category": "decoration",
-    "imageAsset": "Ribbons/joint_service_commendation_medal",
-    "authorizedDevices": ["oak_leaf_cluster"],
+    "precedence": 22,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/jscm",
+    "authorizedDevices": [],
     "devicesOrientedToWearer": false,
-    "eligibleComponents": ["active", "reserve", "guard"],
-    "regulationRef": "DA PAM 670-1, para 22-5a(15)"
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5a"
   },
   {
-    "id": "army_commendation_medal",
+    "id": "arcom",
     "name": "Army Commendation Medal",
     "shortName": "ARCOM",
-    "precedence": 16,
-    "category": "decoration",
-    "imageAsset": "Ribbons/army_commendation_medal",
-    "authorizedDevices": ["oak_leaf_cluster", "v_device", "numeral"],
+    "precedence": 23,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/arcom",
+    "authorizedDevices": [],
     "devicesOrientedToWearer": false,
-    "eligibleComponents": ["active", "reserve", "guard"],
-    "regulationRef": "DA PAM 670-1, para 22-5a(16)"
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5a"
   },
   {
-    "id": "joint_service_achievement_medal",
+    "id": "ncm",
+    "name": "Navy Commendation Medal",
+    "shortName": "NCM",
+    "precedence": 24,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/ncm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5a"
+  },
+  {
+    "id": "afcm",
+    "name": "Air Force Commendation Medal",
+    "shortName": "AFCM",
+    "precedence": 25,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/afcm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5a"
+  },
+  {
+    "id": "cgcm",
+    "name": "Coast Guard Commendation Medal",
+    "shortName": "CGCM",
+    "precedence": 26,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/cgcm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5a"
+  },
+  {
+    "id": "jsam",
     "name": "Joint Service Achievement Medal",
     "shortName": "JSAM",
-    "precedence": 17,
-    "category": "decoration",
-    "imageAsset": "Ribbons/joint_service_achievement_medal",
-    "authorizedDevices": ["oak_leaf_cluster"],
+    "precedence": 27,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/jsam",
+    "authorizedDevices": [],
     "devicesOrientedToWearer": false,
-    "eligibleComponents": ["active", "reserve", "guard"],
-    "regulationRef": "DA PAM 670-1, para 22-5a(17)"
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5a"
   },
   {
-    "id": "army_achievement_medal",
+    "id": "aam",
     "name": "Army Achievement Medal",
     "shortName": "AAM",
-    "precedence": 18,
-    "category": "decoration",
-    "imageAsset": "Ribbons/army_achievement_medal",
-    "authorizedDevices": ["oak_leaf_cluster"],
+    "precedence": 28,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/aam",
+    "authorizedDevices": [],
     "devicesOrientedToWearer": false,
-    "eligibleComponents": ["active", "reserve", "guard"],
-    "regulationRef": "DA PAM 670-1, para 22-5a(18)"
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5a"
   },
   {
-    "id": "army_good_conduct_medal",
-    "name": "Army Good Conduct Medal",
-    "shortName": "AGCM",
+    "id": "nam",
+    "name": "Navy Achievement Medal",
+    "shortName": "NAM",
+    "precedence": 29,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/nam",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5a"
+  },
+  {
+    "id": "afam",
+    "name": "Air Force Achievement Medal",
+    "shortName": "AFAM",
     "precedence": 30,
-    "category": "good_conduct",
-    "imageAsset": "Ribbons/army_good_conduct_medal",
-    "authorizedDevices": ["clasp", "numeral"],
+    "category": "ribbon",
+    "imageAsset": "Ribbons/afam",
+    "authorizedDevices": [],
     "devicesOrientedToWearer": false,
-    "eligibleComponents": ["active"],
-    "regulationRef": "DA PAM 670-1, para 22-5c(1)"
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5a"
   },
   {
-    "id": "army_reserve_components_achievement_medal",
-    "name": "Army Reserve Components Achievement Medal",
-    "shortName": "ARCAM",
+    "id": "cgam",
+    "name": "Coast Guard Achievement Medal",
+    "shortName": "CGAM",
     "precedence": 31,
-    "category": "good_conduct",
-    "imageAsset": "Ribbons/army_reserve_components_achievement_medal",
-    "authorizedDevices": ["oak_leaf_cluster", "numeral"],
+    "category": "ribbon",
+    "imageAsset": "Ribbons/cgam",
+    "authorizedDevices": [],
     "devicesOrientedToWearer": false,
-    "eligibleComponents": ["reserve", "guard"],
-    "regulationRef": "DA PAM 670-1, para 22-5c(2)"
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5a"
   },
   {
-    "id": "national_defense_service_medal",
+    "id": "car",
+    "name": "Combat Action Ribbon (Navy/Marine/CG)",
+    "shortName": "CAR",
+    "precedence": 32,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/car",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5a"
+  },
+  {
+    "id": "afcam",
+    "name": "Air Force Combat Action Medal",
+    "shortName": "AFCAM",
+    "precedence": 33,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/afcam",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5a"
+  },
+  {
+    "id": "puc_af",
+    "name": "Presidential Unit Citation (Army/Air Force)",
+    "shortName": "PUC_AF",
+    "precedence": 34,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/puc_af",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5b"
+  },
+  {
+    "id": "puc_n",
+    "name": "Presidential Unit Citation (Navy/Marine Corps)",
+    "shortName": "PUC_N",
+    "precedence": 35,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/puc_n",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5b"
+  },
+  {
+    "id": "puc_cg",
+    "name": "Presidential Unit Citation (Coast Guard)",
+    "shortName": "PUC_CG",
+    "precedence": 36,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/puc_cg",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5b"
+  },
+  {
+    "id": "jmua",
+    "name": "Joint Meritorious Unit Award",
+    "shortName": "JMUA",
+    "precedence": 37,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/jmua",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5b"
+  },
+  {
+    "id": "vua",
+    "name": "Army Valorous Unit Award",
+    "shortName": "VUA",
+    "precedence": 38,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/vua",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5b"
+  },
+  {
+    "id": "nuc",
+    "name": "Navy Unit Commendation",
+    "shortName": "NUC",
+    "precedence": 39,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/nuc",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5b"
+  },
+  {
+    "id": "afgua",
+    "name": "Air Force Gallant Unit Award",
+    "shortName": "AFGUA",
+    "precedence": 40,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/afgua",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5b"
+  },
+  {
+    "id": "cguc",
+    "name": "Coast Guard Unit Commendation",
+    "shortName": "CGUC",
+    "precedence": 41,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/cguc",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5b"
+  },
+  {
+    "id": "muc",
+    "name": "Army Meritorious Unit Commendation",
+    "shortName": "MUC",
+    "precedence": 42,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/muc",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5b"
+  },
+  {
+    "id": "nmuc",
+    "name": "Navy Meritorious Unit Commendation",
+    "shortName": "NMUC",
+    "precedence": 43,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/nmuc",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5b"
+  },
+  {
+    "id": "afmua",
+    "name": "Air Force Meritorious Unit Award",
+    "shortName": "AFMUA",
+    "precedence": 44,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/afmua",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5b"
+  },
+  {
+    "id": "cgmuc",
+    "name": "Coast Guard Meritorious Unit Commendation",
+    "shortName": "CGMUC",
+    "precedence": 45,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/cgmuc",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5b"
+  },
+  {
+    "id": "sua",
+    "name": "Army Superior Unit Award",
+    "shortName": "SUA",
+    "precedence": 46,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/sua",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5b"
+  },
+  {
+    "id": "afoua",
+    "name": "Air Force Outstanding Unit Award",
+    "shortName": "AFOUA",
+    "precedence": 47,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/afoua",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5b"
+  },
+  {
+    "id": "cgmtc",
+    "name": "Coast Guard Meritorious Team Commendation",
+    "shortName": "CGMTC",
+    "precedence": 48,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/cgmtc",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5b"
+  },
+  {
+    "id": "ner",
+    "name": "Navy 'E' Ribbon",
+    "shortName": "NER",
+    "precedence": 49,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/ner",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5b"
+  },
+  {
+    "id": "afoea",
+    "name": "Air Force Organizational Excellence Award",
+    "shortName": "AFOEA",
+    "precedence": 50,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/afoea",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5b"
+  },
+  {
+    "id": "cger",
+    "name": "Coast Guard 'E' Ribbon",
+    "shortName": "CGER",
+    "precedence": 51,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/cger",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5b"
+  },
+  {
+    "id": "pmf",
+    "name": "Presidential Medal of Freedom",
+    "shortName": "PMF",
+    "precedence": 52,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/pmf",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5c"
+  },
+  {
+    "id": "pcm",
+    "name": "Presidential Citizen's Medal",
+    "shortName": "PCM",
+    "precedence": 53,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/pcm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5c"
+  },
+  {
+    "id": "padfcs",
+    "name": "President's Award for Distinguished Federal Civilian Service",
+    "shortName": "PADFCS",
+    "precedence": 54,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/padfcs",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5c"
+  },
+  {
+    "id": "doddc",
+    "name": "DoD Distinguished Civilian Service Award",
+    "shortName": "DODDC",
+    "precedence": 55,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/doddc",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5c"
+  },
+  {
+    "id": "sddof",
+    "name": "Secretary of Defense Medal for the Defense of Freedom",
+    "shortName": "SDDOF",
+    "precedence": 56,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/sddof",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5c"
+  },
+  {
+    "id": "sdmcs",
+    "name": "Secretary of Defense Meritorious Civilian Service Award",
+    "shortName": "SDMCS",
+    "precedence": 57,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/sdmcs",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5c"
+  },
+  {
+    "id": "osdecs",
+    "name": "OSD Exceptional Civilian Service Award",
+    "shortName": "OSDECS",
+    "precedence": 58,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/osdecs",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5c"
+  },
+  {
+    "id": "sadsa",
+    "name": "Secretary of the Army Distinguished Service Award",
+    "shortName": "SADSA",
+    "precedence": 59,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/sadsa",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5c"
+  },
+  {
+    "id": "nidsm",
+    "name": "National Intelligence Distinguished Service Medal",
+    "shortName": "NIDSM",
+    "precedence": 60,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/nidsm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5c"
+  },
+  {
+    "id": "nissm",
+    "name": "National Intelligence Superior Service Medal",
+    "shortName": "NISSM",
+    "precedence": 61,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/nissm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5c"
+  },
+  {
+    "id": "nieam",
+    "name": "National Intelligence Exceptional Achievement Medal",
+    "shortName": "NIEAM",
+    "precedence": 62,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/nieam",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5c"
+  },
+  {
+    "id": "sgesm",
+    "name": "Surgeon General's Exemplary Service Medal",
+    "shortName": "SGESM",
+    "precedence": 63,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/sgesm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5c"
+  },
+  {
+    "id": "nassfm",
+    "name": "NASA Space Flight Medal",
+    "shortName": "NASSFM",
+    "precedence": 64,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/nassfm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5c"
+  },
+  {
+    "id": "phscm",
+    "name": "Public Health Service Commendation Medal",
+    "shortName": "PHSCM",
+    "precedence": 65,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/phscm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5c"
+  },
+  {
+    "id": "phsam",
+    "name": "Public Health Service Achievement Medal",
+    "shortName": "PHSAM",
+    "precedence": 66,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/phsam",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5c"
+  },
+  {
+    "id": "dosdsa",
+    "name": "Department of State Distinguished Service Award",
+    "shortName": "DOSDSA",
+    "precedence": 67,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/dosdsa",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5c"
+  },
+  {
+    "id": "dosdha",
+    "name": "Department of State Distinguished Honor Award",
+    "shortName": "DOSDHA",
+    "precedence": 68,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/dosdha",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5c"
+  },
+  {
+    "id": "dossha",
+    "name": "Department of State Superior Honor Award",
+    "shortName": "DOSSHA",
+    "precedence": 69,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/dossha",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5c"
+  },
+  {
+    "id": "dosmha",
+    "name": "Department of State Meritorious Honor Award",
+    "shortName": "DOSMHA",
+    "precedence": 70,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/dosmha",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5c"
+  },
+  {
+    "id": "decs",
+    "name": "Decoration for Exceptional Civilian Service",
+    "shortName": "DECS",
+    "precedence": 71,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/decs",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5c"
+  },
+  {
+    "id": "mcsa",
+    "name": "Meritorious Civilian Service Award",
+    "shortName": "MCSA",
+    "precedence": 72,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/mcsa",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5c"
+  },
+  {
+    "id": "scsa",
+    "name": "Superior Civilian Service Award",
+    "shortName": "SCSA",
+    "precedence": 73,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/scsa",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5c"
+  },
+  {
+    "id": "cacs",
+    "name": "Commander's Award for Civilian Service",
+    "shortName": "CACS",
+    "precedence": 74,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/cacs",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5c"
+  },
+  {
+    "id": "amcs",
+    "name": "Achievement Medal for Civilian Service",
+    "shortName": "AMCS",
+    "precedence": 75,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/amcs",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5c"
+  },
+  {
+    "id": "pow",
+    "name": "Prisoner of War Medal",
+    "shortName": "POW",
+    "precedence": 76,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/pow",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5d"
+  },
+  {
+    "id": "gcm",
+    "name": "Good Conduct Medal",
+    "shortName": "GCM",
+    "precedence": 77,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/gcm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5d"
+  },
+  {
+    "id": "adsm",
+    "name": "American Defense Service Medal",
+    "shortName": "ADSM",
+    "precedence": 78,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/adsm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5d"
+  },
+  {
+    "id": "wacsm",
+    "name": "Women's Army Corps Service Medal",
+    "shortName": "WACSM",
+    "precedence": 79,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/wacsm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5d"
+  },
+  {
+    "id": "acm",
+    "name": "American Campaign Medal",
+    "shortName": "ACM",
+    "precedence": 80,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/acm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5d"
+  },
+  {
+    "id": "apcm",
+    "name": "Asiatic-Pacific Campaign Medal",
+    "shortName": "APCM",
+    "precedence": 81,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/apcm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5d"
+  },
+  {
+    "id": "eamecm",
+    "name": "European-African-Middle Eastern Campaign Medal",
+    "shortName": "EAMECM",
+    "precedence": 82,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/eamecm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5d"
+  },
+  {
+    "id": "ww2vm",
+    "name": "World War II Victory Medal",
+    "shortName": "WW2VM",
+    "precedence": 83,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/ww2vm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5d"
+  },
+  {
+    "id": "aom",
+    "name": "Army of Occupation Medal",
+    "shortName": "AOM",
+    "precedence": 84,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/aom",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5d"
+  },
+  {
+    "id": "mha",
+    "name": "Medal for Humane Action",
+    "shortName": "MHA",
+    "precedence": 85,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/mha",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5d"
+  },
+  {
+    "id": "ndsm",
     "name": "National Defense Service Medal",
     "shortName": "NDSM",
-    "precedence": 40,
-    "category": "service",
-    "imageAsset": "Ribbons/national_defense_service_medal",
-    "authorizedDevices": ["bronze_star"],
+    "precedence": 86,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/ndsm",
+    "authorizedDevices": [],
     "devicesOrientedToWearer": false,
-    "eligibleComponents": ["active", "reserve", "guard"],
-    "regulationRef": "DA PAM 670-1, para 22-5d(1)"
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5d"
   },
   {
-    "id": "afghanistan_campaign_medal",
+    "id": "ksm",
+    "name": "Korean Service Medal",
+    "shortName": "KSM",
+    "precedence": 87,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/ksm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5d"
+  },
+  {
+    "id": "antsm",
+    "name": "Antarctica Service Medal",
+    "shortName": "ANTSM",
+    "precedence": 88,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/antsm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5d"
+  },
+  {
+    "id": "afem",
+    "name": "Armed Forces Expeditionary Medal",
+    "shortName": "AFEM",
+    "precedence": 89,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/afem",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": true,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5d"
+  },
+  {
+    "id": "vsm",
+    "name": "Vietnam Service Medal",
+    "shortName": "VSM",
+    "precedence": 90,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/vsm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5d"
+  },
+  {
+    "id": "swasm",
+    "name": "Southwest Asia Service Medal",
+    "shortName": "SWASM",
+    "precedence": 91,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/swasm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5d"
+  },
+  {
+    "id": "kcm",
+    "name": "Kosovo Campaign Medal",
+    "shortName": "KCM",
+    "precedence": 92,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/kcm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5d"
+  },
+  {
+    "id": "afgncm",
     "name": "Afghanistan Campaign Medal",
-    "shortName": "ACM",
-    "precedence": 41,
-    "category": "campaign",
-    "imageAsset": "Ribbons/afghanistan_campaign_medal",
-    "authorizedDevices": ["bronze_star", "silver_star_device"],
+    "shortName": "AFGNCM",
+    "precedence": 93,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/afgncm",
+    "authorizedDevices": [],
     "devicesOrientedToWearer": false,
-    "eligibleComponents": ["active", "reserve", "guard"],
-    "regulationRef": "DA PAM 670-1, para 22-5d(8)"
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5d"
   },
   {
-    "id": "iraq_campaign_medal",
+    "id": "icm",
     "name": "Iraq Campaign Medal",
     "shortName": "ICM",
-    "precedence": 42,
-    "category": "campaign",
-    "imageAsset": "Ribbons/iraq_campaign_medal",
-    "authorizedDevices": ["bronze_star", "silver_star_device"],
+    "precedence": 94,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/icm",
+    "authorizedDevices": [],
     "devicesOrientedToWearer": false,
-    "eligibleComponents": ["active", "reserve", "guard"],
-    "regulationRef": "DA PAM 670-1, para 22-5d(9)"
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5d"
   },
   {
-    "id": "global_war_on_terrorism_expeditionary_medal",
+    "id": "ircm",
+    "name": "Inherent Resolve Campaign Medal",
+    "shortName": "IRCM",
+    "precedence": 95,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/ircm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5d"
+  },
+  {
+    "id": "gwotem",
     "name": "Global War on Terrorism Expeditionary Medal",
     "shortName": "GWOTEM",
-    "precedence": 43,
-    "category": "campaign",
-    "imageAsset": "Ribbons/global_war_on_terrorism_expeditionary_medal",
-    "authorizedDevices": ["bronze_star"],
+    "precedence": 96,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/gwotem",
+    "authorizedDevices": [],
     "devicesOrientedToWearer": false,
-    "eligibleComponents": ["active", "reserve", "guard"],
-    "regulationRef": "DA PAM 670-1, para 22-5d(10)"
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5d"
   },
   {
-    "id": "global_war_on_terrorism_service_medal",
+    "id": "gwotsm",
     "name": "Global War on Terrorism Service Medal",
-    "shortName": "GWOTSSM",
-    "precedence": 44,
-    "category": "service",
-    "imageAsset": "Ribbons/global_war_on_terrorism_service_medal",
-    "authorizedDevices": ["bronze_star"],
+    "shortName": "GWOTSM",
+    "precedence": 97,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/gwotsm",
+    "authorizedDevices": [],
     "devicesOrientedToWearer": false,
-    "eligibleComponents": ["active", "reserve", "guard"],
-    "regulationRef": "DA PAM 670-1, para 22-5d(11)"
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5d"
   },
   {
-    "id": "armed_forces_reserve_medal",
+    "id": "kdsm",
+    "name": "Korean Defense Service Medal",
+    "shortName": "KDSM",
+    "precedence": 98,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/kdsm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5d"
+  },
+  {
+    "id": "afsm",
+    "name": "Armed Forces Service Medal",
+    "shortName": "AFSM",
+    "precedence": 99,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/afsm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5d"
+  },
+  {
+    "id": "hsm",
+    "name": "Humanitarian Service Medal",
+    "shortName": "HSM",
+    "precedence": 100,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/hsm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5d"
+  },
+  {
+    "id": "movsr",
+    "name": "Military Outstanding Volunteer Service Medal",
+    "shortName": "MOVSR",
+    "precedence": 101,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/movsr",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5d"
+  },
+  {
+    "id": "asdr",
+    "name": "Army Sea Duty Ribbon",
+    "shortName": "ASDR",
+    "precedence": 102,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/asdr",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5d"
+  },
+  {
+    "id": "afrm",
     "name": "Armed Forces Reserve Medal",
     "shortName": "AFRM",
-    "precedence": 50,
-    "category": "service",
-    "imageAsset": "Ribbons/armed_forces_reserve_medal",
-    "authorizedDevices": ["hourglass_device", "m_device"],
-    "devicesOrientedToWearer": true,
-    "eligibleComponents": ["reserve", "guard"],
-    "regulationRef": "DA PAM 670-1, para 22-5e(2)"
+    "precedence": 103,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/afrm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5d"
   },
   {
-    "id": "army_service_ribbon",
+    "id": "ncopdr",
+    "name": "NCO Professional Development Ribbon",
+    "shortName": "NCOPDR",
+    "precedence": 104,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/ncopdr",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5d"
+  },
+  {
+    "id": "asr",
     "name": "Army Service Ribbon",
     "shortName": "ASR",
-    "precedence": 60,
-    "category": "service",
-    "imageAsset": "Ribbons/army_service_ribbon",
+    "precedence": 105,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/asr",
     "authorizedDevices": [],
     "devicesOrientedToWearer": false,
-    "eligibleComponents": ["active"],
-    "regulationRef": "DA PAM 670-1, para 22-5f(1)"
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5d"
   },
   {
-    "id": "overseas_service_ribbon",
+    "id": "osr",
     "name": "Overseas Service Ribbon",
     "shortName": "OSR",
-    "precedence": 61,
-    "category": "service",
-    "imageAsset": "Ribbons/overseas_service_ribbon",
-    "authorizedDevices": ["numeral"],
-    "devicesOrientedToWearer": false,
-    "eligibleComponents": ["active"],
-    "regulationRef": "DA PAM 670-1, para 22-5f(2)"
-  },
-  {
-    "id": "army_reserve_components_overseas_training_ribbon",
-    "name": "Army Reserve Components Overseas Training Ribbon",
-    "shortName": "ARCOTR",
-    "precedence": 62,
-    "category": "service",
-    "imageAsset": "Ribbons/army_reserve_components_overseas_training_ribbon",
-    "authorizedDevices": ["numeral"],
-    "devicesOrientedToWearer": false,
-    "eligibleComponents": ["reserve", "guard"],
-    "regulationRef": "DA PAM 670-1, para 22-5f(3)"
-  },
-  {
-    "id": "state_award_placeholder",
-    "name": "State Award (Placeholder)",
-    "shortName": "STATE",
-    "precedence": 99,
-    "category": "state",
-    "imageAsset": "Ribbons/state_award_placeholder",
+    "precedence": 106,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/osr",
     "authorizedDevices": [],
     "devicesOrientedToWearer": false,
-    "eligibleComponents": ["guard"],
-    "regulationRef": "State Military Dept regulations"
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5d"
+  },
+  {
+    "id": "arcotr",
+    "name": "Army Reserve Components Overseas Training Ribbon",
+    "shortName": "ARCOTR",
+    "precedence": 107,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/arcotr",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5d"
+  },
+  {
+    "id": "cgsosr",
+    "name": "Coast Guard Special Operations Service Ribbon",
+    "shortName": "CGSOSR",
+    "precedence": 108,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/cgsosr",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5d"
+  },
+  {
+    "id": "afcrm",
+    "name": "Air Force Combat Readiness Medal",
+    "shortName": "AFCRM",
+    "precedence": 109,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/afcrm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5d"
+  },
+  {
+    "id": "nssdr",
+    "name": "Navy Sea Service Deployment Ribbon",
+    "shortName": "NSSDR",
+    "precedence": 110,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/nssdr",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5d"
+  },
+  {
+    "id": "mmdsm",
+    "name": "Merchant Marine Distinguished Service Medal",
+    "shortName": "MMDSM",
+    "precedence": 111,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/mmdsm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5e"
+  },
+  {
+    "id": "mmmsm",
+    "name": "Merchant Marine Meritorious Service Medal",
+    "shortName": "MMMSM",
+    "precedence": 112,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/mmmsm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5e"
+  },
+  {
+    "id": "mmgsc",
+    "name": "Merchant Marine Gallant Ship Citation",
+    "shortName": "MMGSC",
+    "precedence": 113,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/mmgsc",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5e"
+  },
+  {
+    "id": "mmmm",
+    "name": "Merchant Marine Mariner's Medal",
+    "shortName": "MMMM",
+    "precedence": 114,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/mmmm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5e"
+  },
+  {
+    "id": "mmcm",
+    "name": "Merchant Marine Combat Medal",
+    "shortName": "MMCM",
+    "precedence": 115,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/mmcm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5e"
+  },
+  {
+    "id": "mmdm",
+    "name": "Merchant Marine Defense Medal",
+    "shortName": "MMDM",
+    "precedence": 116,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/mmdm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5e"
+  },
+  {
+    "id": "mmawzm",
+    "name": "Merchant Marine Atlantic War Zone Medal",
+    "shortName": "MMAWZM",
+    "precedence": 117,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/mmawzm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5e"
+  },
+  {
+    "id": "mmpwzm",
+    "name": "Merchant Marine Pacific War Zone Medal",
+    "shortName": "MMPWZM",
+    "precedence": 118,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/mmpwzm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5e"
+  },
+  {
+    "id": "mmmmem",
+    "name": "Merchant Marine Mediterranean-Middle East War Zone Medal",
+    "shortName": "MMMMEM",
+    "precedence": 119,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/mmmmem",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5e"
+  },
+  {
+    "id": "mmvm",
+    "name": "Merchant Marine Victory Medal",
+    "shortName": "MMVM",
+    "precedence": 120,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/mmvm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5e"
+  },
+  {
+    "id": "mmksm",
+    "name": "Merchant Marine Korean Service Medal",
+    "shortName": "MMKSM",
+    "precedence": 121,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/mmksm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5e"
+  },
+  {
+    "id": "mmvsm",
+    "name": "Merchant Marine Vietnam Service Medal",
+    "shortName": "MMVSM",
+    "precedence": 122,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/mmvsm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5e"
+  },
+  {
+    "id": "mmem",
+    "name": "Merchant Marine Expeditionary Medal",
+    "shortName": "MMEM",
+    "precedence": 123,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/mmem",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5e"
+  },
+  {
+    "id": "mmpdr",
+    "name": "Merchant Marine Philippine Defense Ribbon",
+    "shortName": "MMPDR",
+    "precedence": 124,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/mmpdr",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5e"
+  },
+  {
+    "id": "mmplr",
+    "name": "Merchant Marine Philippine Liberation Ribbon",
+    "shortName": "MMPLR",
+    "precedence": 125,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/mmplr",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5e"
+  },
+  {
+    "id": "prpuc",
+    "name": "Philippine Republic Presidential Unit Citation",
+    "shortName": "PRPUC",
+    "precedence": 126,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/prpuc",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5h"
+  },
+  {
+    "id": "rokpuc",
+    "name": "Republic of Korea Presidential Unit Citation",
+    "shortName": "ROKPUC",
+    "precedence": 127,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/rokpuc",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5h"
+  },
+  {
+    "id": "vnpuc",
+    "name": "Vietnam Presidential Unit Citation",
+    "shortName": "VNPUC",
+    "precedence": 128,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/vnpuc",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5h"
+  },
+  {
+    "id": "vngcuc",
+    "name": "Republic of Vietnam Gallantry Cross Unit Citation",
+    "shortName": "VNGCUC",
+    "precedence": 129,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/vngcuc",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5h"
+  },
+  {
+    "id": "vncauc",
+    "name": "Republic of Vietnam Civil Actions Unit Citation",
+    "shortName": "VNCAUC",
+    "precedence": 130,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/vncauc",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5h"
+  },
+  {
+    "id": "pdr",
+    "name": "Philippine Defense Ribbon",
+    "shortName": "PDR",
+    "precedence": 131,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/pdr",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5i"
+  },
+  {
+    "id": "plr",
+    "name": "Philippine Liberation Ribbon",
+    "shortName": "PLR",
+    "precedence": 132,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/plr",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5i"
+  },
+  {
+    "id": "pir",
+    "name": "Philippine Independence Ribbon",
+    "shortName": "PIR",
+    "precedence": 133,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/pir",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5i"
+  },
+  {
+    "id": "unsm",
+    "name": "United Nations Service Medal",
+    "shortName": "UNSM",
+    "precedence": 134,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/unsm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5i"
+  },
+  {
+    "id": "iadbm",
+    "name": "Inter-American Defense Board Medal",
+    "shortName": "IADBM",
+    "precedence": 135,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/iadbm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5i"
+  },
+  {
+    "id": "unm",
+    "name": "United Nations Medal",
+    "shortName": "UNM",
+    "precedence": 136,
+    "category": "ribbon",
+    "imageAsset": "Ribbons/unm",
+    "authorizedDevices": [],
+    "devicesOrientedToWearer": false,
+    "eligibleComponents": [
+      "active",
+      "reserve",
+      "guard"
+    ],
+    "regulationRef": "DA PAM 670-1, para 22-5i"
   }
 ]
