@@ -17,6 +17,8 @@ struct ProfileSetupView: View {
     @StateObject private var vm  = ProfileViewModel()
     @State private var branchSearch = ""
     @State private var gradeSearch  = ""
+    @EnvironmentObject private var navCoordinator: NavigationCoordinator
+    @Environment(\.dismiss) private var dismiss
 
     private let steps = ["PROFILE", "INSIGNIA", "REVIEW", "ADJUST"]
 
@@ -175,6 +177,7 @@ struct ProfileSetupView: View {
         }
         .navigationTitle("Your Profile")
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear { if navCoordinator.shouldReturnToHome { dismiss() } }
     }
 
     /// Section header label with 1.2 pt letter-spacing.

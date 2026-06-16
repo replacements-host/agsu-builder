@@ -21,6 +21,8 @@ struct CanvasView: View {
     let items:   [UniformItem]
 
     @StateObject private var vm: CanvasViewModel
+    @EnvironmentObject private var navCoordinator: NavigationCoordinator
+    @Environment(\.dismiss) private var dismiss
 
     @State private var showRegulationSheet = false
     @State private var showAdjustMode      = false
@@ -44,6 +46,8 @@ struct CanvasView: View {
                 Text("\(soldier.grade.uppercased()) · \(soldier.branch.capitalized) · \(soldier.component.rawValue.uppercased())")
                     .font(AppFont.semiBold(13))
                     .foregroundColor(Color(.secondaryLabel))
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.7)
                 Spacer()
                 Text("\(vm.placedItems.count) item\(vm.placedItems.count == 1 ? "" : "s")")
                     .font(AppFont.caption)
@@ -133,6 +137,7 @@ struct CanvasView: View {
         }
         .navigationTitle("Your AGSU")
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear { if navCoordinator.shouldReturnToHome { dismiss() } }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("REGS") { showMeasurements.toggle() }

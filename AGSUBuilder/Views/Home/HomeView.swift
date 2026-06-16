@@ -10,6 +10,8 @@ import SwiftUI
 /// hidden so the wordmark fills the full screen.
 struct HomeView: View {
 
+    @EnvironmentObject private var navCoordinator: NavigationCoordinator
+
     var body: some View {
         NavigationStack {
             ZStack {
@@ -72,6 +74,7 @@ struct HomeView: View {
                 .padding()
             }
             .navigationBarHidden(true)
+            .onAppear { navCoordinator.shouldReturnToHome = false }
         }
     }
 }

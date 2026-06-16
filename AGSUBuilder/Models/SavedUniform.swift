@@ -91,4 +91,20 @@ struct SavedUniform: Codable, Identifiable {
             badgeGroupThreePosition: badgeGroupThreePosition
         )
     }
+
+    /// Decodes the saved `itemsJSON` blob and reconstructs `UniformItem` values
+    /// by looking each id up in `DataLoader`. Items whose ids are no longer in
+    /// the data files (e.g. regulation changes) are silently dropped.
+    func toUniformItems() -> [UniformItem] {
+        guard let data = itemsJSON.data(using: .utf8),
+              let json = try? JSONSerialization.jsonObject(with: data) as? [[String: Any]] else {
+            return []
+        }
+        return json.compactMap { dict in
+            guard let id = dict["id"] as? String else { return nil }
+            let awardCount = dict["awardCount"] as? Int    ?? 1
+            let devices    = dict["devices"]    as? [String] ?? []
+            return DataLoader.shared.findItem(id: id, awardCount: awardCount, devices: devices)
+        }
+    }
 }

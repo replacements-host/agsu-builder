@@ -1,30 +1,34 @@
 import SwiftUI
+import Photos
 
-/// Offers four export formats plus uniform saving.
+/// Offers export formats plus uniform saving.
 ///
 /// **Export options:**
 /// 1. **PDF Spec Sheet** — `UIGraphicsPDFRenderer` generates an 8.5×11" page with the
-///    coat image and a regulation citation table.
+///    coat image and a regulation citation table. Shared as a `.pdf` file URL.
 /// 2. **Image (Front View)** — `ImageRenderer` captures the coat + insignia at 3× scale.
-/// 3. **Setup Checklist** — Plain text ordered list of attachment steps.
-/// 4. **Share to Unit** — Passes a `UIImage` to the iOS share sheet.
+/// 3. **Save to Photos** — Writes the coat image to the Camera Roll.
+/// 4. **Setup Checklist** — Plain text ordered list of attachment steps with measurements.
+/// 5. **Share to Unit** — Passes a `UIImage` to the iOS share sheet.
 ///
-/// All export options funnel through `UIActivityViewController` via the `ShareSheet` wrapper.
 /// Saving a uniform delegates to the shared `SavedUniformsViewModel` environment object.
 struct ExportView: View {
 
     @ObservedObject var vm: CanvasViewModel
     @EnvironmentObject private var savedVM: SavedUniformsViewModel
+    @EnvironmentObject private var navCoordinator: NavigationCoordinator
+    @Environment(\.dismiss) private var dismiss
 
-    @State private var showShareSheet  = false
-    @State private var showSaveDialog  = false
-    @State private var uniformName     = ""
-    @State private var shareItems: [Any] = []
+    @State private var showShareSheet       = false
+    @State private var showSaveDialog       = false
+    @State private var showPhotoSavedAlert  = false
+    @State private var uniformName          = ""
+    @State private var shareItems: [Any]    = []
 
     var body: some View {
         List {
 
-            // ── Coat thumbnail ─────────────────────────────────────────────────
+            // ── Coat preview ───────────────────────────────────────────────────
             Section {
                 GeometryReader { geo in
                     ZStack {
@@ -36,9 +40,11 @@ struct ExportView: View {
                         )
                     }
                 }
-                .frame(height: 200)
+                .frame(height: 300)
                 .cornerRadius(Radius.md)
                 .listRowInsets(EdgeInsets())
+            } header: {
+                Text("\(vm.soldier.grade.uppercased()) · \(vm.soldier.branch.capitalized) · \(vm.soldier.component.rawValue.uppercased())")
             }
 
             // ── Export options ─────────────────────────────────────────────────
@@ -50,12 +56,17 @@ struct ExportView: View {
                 }
                 exportRow(icon: "photo.fill",
                           title: "Image (Front View)",
-                          subtitle: "Clean coat image without measurement overlays") {
+                          subtitle: "Share coat image via iOS share sheet") {
                     exportImage()
+                }
+                exportRow(icon: "photo.on.rectangle.angled",
+                          title: "Save to Photos",
+                          subtitle: "Save coat image to your Camera Roll") {
+                    saveToPhotos()
                 }
                 exportRow(icon: "list.number",
                           title: "Setup Checklist",
-                          subtitle: "Step-by-step instructions for physical uniform") {
+                          subtitle: "Step-by-step instructions with measurements") {
                     exportChecklist()
                 }
                 exportRow(icon: "square.and.arrow.up",
@@ -93,7 +104,6 @@ struct ExportView: View {
                 }
             }
 
-            // Disclaimer
             Section {
                 Text("Not affiliated with or endorsed by the U.S. Army or Department of Defense. Placement information derived from publicly available Army regulations (DA PAM 670-1). Always verify against current regulations.")
                     .font(AppFont.caption)
@@ -104,10 +114,17 @@ struct ExportView: View {
         .navigationTitle("Export")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
                 Button(action: exportPDF) {
                     Text("PDF")
                         .font(AppFont.buttonLabel)
+                        .foregroundColor(.brandGold)
+                }
+                Button(action: {
+                    navCoordinator.shouldReturnToHome = true
+                    dismiss()
+                }) {
+                    Image(systemName: "house")
                         .foregroundColor(.brandGold)
                 }
             }
@@ -128,11 +145,15 @@ struct ExportView: View {
         } message: {
             Text("Give this uniform a name to find it later.")
         }
+        .alert("Saved to Photos", isPresented: $showPhotoSavedAlert) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text("Your uniform image has been saved to your Camera Roll.")
+        }
     }
 
     // MARK: - Row Builder
 
-    /// Reusable list row with icon, title, subtitle, and chevron.
     @ViewBuilder
     private func exportRow(icon: String, title: String, subtitle: String, action: @escaping () -> Void) -> some View {
         Button(action: action) {
@@ -160,13 +181,33 @@ struct ExportView: View {
     // MARK: - Export Actions
 
     private func exportPDF() {
-        shareItems = [generatePDF(coatImage: renderCanvasImage())]
+        let pdf = generatePDF(coatImage: renderCanvasImage())
+        let fileName = "agsu_\(vm.soldier.grade)_spec_sheet.pdf"
+            .replacingOccurrences(of: "/", with: "-")
+            .replacingOccurrences(of: " ", with: "_")
+        let url = FileManager.default.temporaryDirectory.appendingPathComponent(fileName)
+        try? pdf.write(to: url)
+        shareItems = [url]
         showShareSheet = true
     }
 
     private func exportImage() {
         shareItems = [renderCanvasImage()]
         showShareSheet = true
+    }
+
+    private func saveToPhotos() {
+        let image = renderCanvasImage()
+        PHPhotoLibrary.requestAuthorization(for: .addOnly) { status in
+            guard status == .authorized || status == .limited else { return }
+            PHPhotoLibrary.shared().performChanges({
+                PHAssetChangeRequest.creationRequestForAsset(from: image)
+            }, completionHandler: { success, _ in
+                DispatchQueue.main.async {
+                    if success { showPhotoSavedAlert = true }
+                }
+            })
+        }
     }
 
     private func exportChecklist() {
@@ -181,8 +222,7 @@ struct ExportView: View {
 
     // MARK: - Rendering
 
-    /// Renders the coat and all placed insignia into a `UIImage` at 3× scale
-    /// using SwiftUI's `ImageRenderer` (iOS 16+).
+    /// Renders the coat and all placed insignia into a `UIImage` at 3× scale.
     private func renderCanvasImage() -> UIImage {
         let renderer = ImageRenderer(content:
             ZStack {
@@ -207,8 +247,7 @@ struct ExportView: View {
             ctx.beginPage()
             let cgCtx = ctx.cgContext
 
-            // Title
-            "ARMY UNIFORM BUILDER: AGSU — Spec Sheet".draw(
+            "ARMY UNIFORM BUILDER: AGSU — Specification Sheet".draw(
                 at: CGPoint(x: 36, y: 36),
                 withAttributes: [.font: UIFont.boldSystemFont(ofSize: 18), .foregroundColor: UIColor.black]
             )
@@ -217,17 +256,15 @@ struct ExportView: View {
                 withAttributes: [.font: UIFont.systemFont(ofSize: 12), .foregroundColor: UIColor.darkGray]
             )
 
-            // Coat image (200×300 pt at left margin)
             coatImage.draw(in: CGRect(x: 36, y: 90, width: 200, height: 300))
 
-            // Item citation table at right
             var tableX: CGFloat = 260
             var tableY: CGFloat = 90
             let smallFont = UIFont.systemFont(ofSize: 9)
             let boldFont  = UIFont.boldSystemFont(ofSize: 9)
 
             "ITEM".draw(at:       CGPoint(x: tableX,       y: tableY), withAttributes: [.font: boldFont])
-            "REGULATION".draw(at: CGPoint(x: tableX + 160, y: tableY), withAttributes: [.font: boldFont])
+            "REGULATION REF".draw(at: CGPoint(x: tableX + 160, y: tableY), withAttributes: [.font: boldFont])
             tableY += 14
             cgCtx.setStrokeColor(UIColor.lightGray.cgColor)
             cgCtx.stroke(CGRect(x: tableX, y: tableY, width: 316, height: 0.5))
@@ -235,11 +272,13 @@ struct ExportView: View {
 
             for item in vm.placedItems where tableY < 750 {
                 let name = item.item.id.replacingOccurrences(of: "_", with: " ").capitalized
-                name.draw(at:            CGPoint(x: tableX,       y: tableY), withAttributes: [.font: smallFont])
-                item.regulationRef.draw(at: CGPoint(x: tableX + 160, y: tableY), withAttributes: [.font: smallFont, .foregroundColor: UIColor.systemOrange])
+                name.draw(at: CGPoint(x: tableX, y: tableY), withAttributes: [.font: smallFont])
+                item.regulationRef.draw(at: CGPoint(x: tableX + 160, y: tableY),
+                                        withAttributes: [.font: smallFont, .foregroundColor: UIColor.systemOrange])
                 tableY += 12
                 if let m = item.measurements.first {
-                    "\(m.label): \(m.value)".draw(at: CGPoint(x: tableX + 8, y: tableY), withAttributes: [.font: smallFont, .foregroundColor: UIColor.gray])
+                    "\(m.label): \(m.value)".draw(at: CGPoint(x: tableX + 8, y: tableY),
+                                                   withAttributes: [.font: smallFont, .foregroundColor: UIColor.gray])
                     tableY += 10
                 }
             }
@@ -251,7 +290,7 @@ struct ExportView: View {
         }
     }
 
-    /// Generates a numbered plain-text checklist ordered by item placement sequence.
+    /// Generates a numbered plain-text checklist with specific measurement guidance.
     private func generateSetupChecklist() -> String {
         var lines = [
             "AGSU SETUP CHECKLIST",
@@ -259,10 +298,16 @@ struct ExportView: View {
             "Reference: DA PAM 670-1, 26 January 2021",
             "",
             "Soldier: \(vm.soldier.grade) · \(vm.soldier.branch.capitalized) · \(vm.soldier.component.rawValue)",
+            "Gender: \(vm.soldier.gender.rawValue)",
             "",
+            "PREPARATION",
+            "  • Press coat, ensuring all creases align with regulation",
+            "  • Lay coat flat on a clean surface, front facing up",
+            "  • Have a ruler (in inches) ready for measurements below",
+            "",
+            "ATTACHMENT SEQUENCE",
         ]
 
-        // Emit items in the order they should be physically attached to the coat
         let setupOrder: [ItemCategory] = [
             .rank, .branchInsignia, .usInsignia, .ribbon,
             .badge(group: 1), .badge(group: 2), .badge(group: 3),
@@ -271,13 +316,44 @@ struct ExportView: View {
         var step = 1
         for category in setupOrder {
             for item in vm.placedItems where item.item.category == category {
-                let name        = item.item.id.replacingOccurrences(of: "_", with: " ").capitalized
-                let measurement = item.measurements.first.map { $0.value } ?? "per regulation"
-                lines.append("\(step). Attach \(name) — \(measurement) (\(item.regulationRef))")
+                let name = item.item.id.replacingOccurrences(of: "_", with: " ").capitalized
+                let detail: String
+                if let m = item.measurements.first {
+                    detail = "\(m.label): \(m.value)"
+                } else {
+                    switch item.item.category {
+                    case .rank:
+                        detail = vm.soldier.rankCategory == .enlisted
+                            ? "Center on collar, point 5/8\" from each collar tip"
+                            : "Center on shoulder loop"
+                    case .branchInsignia:
+                        detail = "Left collar, centered 1\" from bottom edge, 1-1/4\" from tip"
+                    case .usInsignia:
+                        detail = "Right collar, centered 1\" from bottom edge, 1-1/4\" from tip"
+                    case .ribbon:
+                        detail = "Ribbon rack, 1/8\" above left breast pocket top, centered on pocket"
+                    case .badge(let g):
+                        detail = "Badge Group \(g): above ribbon rack in group-precedence order"
+                    case .idBadge:
+                        detail = "Centered on breast pocket, 1/4\" below pocket seam"
+                    case .tab:
+                        detail = "Left sleeve, stacked per para 22-16d precedence table"
+                    default:
+                        detail = "See \(item.regulationRef)"
+                    }
+                }
+                lines.append("\(step). \(name)")
+                lines.append("   \(detail)")
+                lines.append("   Ref: \(item.regulationRef)")
+                lines.append("")
                 step += 1
             }
         }
 
+        lines.append("FINAL CHECK")
+        lines.append("  • Verify all pin-on items are secured with clutch backs")
+        lines.append("  • Confirm ribbon rack is level")
+        lines.append("  • Cross-reference with current DA PAM 670-1 for any recent changes")
         lines.append("")
         lines.append("Not affiliated with or endorsed by the U.S. Army or Department of Defense.")
         return lines.joined(separator: "\n")
@@ -287,7 +363,6 @@ struct ExportView: View {
 // MARK: - ShareSheet
 
 /// Thin `UIViewControllerRepresentable` wrapper around `UIActivityViewController`.
-/// Presents the iOS share sheet with the given items array.
 struct ShareSheet: UIViewControllerRepresentable {
 
     let items: [Any]

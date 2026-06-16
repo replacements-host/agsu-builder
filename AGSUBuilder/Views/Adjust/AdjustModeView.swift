@@ -244,6 +244,17 @@ struct AdjustModeView: View {
 
     // MARK: - Directional Controls
 
+    /// `true` when nudging in `delta` direction would keep the item within the 0–1 canvas bounds.
+    /// Also returns `false` when no item is selected, which disables all four arrow buttons.
+    private func canNudge(_ delta: CGSize) -> Bool {
+        guard let item = selectedItem else { return false }
+        let snapUnit   = snapIncrement.inches * vm.soldier.coatVariant.geometry.normalizedUnitsPerInch
+        let currentPos = item.adjustedPosition ?? item.regulationPosition
+        let newX = currentPos.x + delta.width  * snapUnit
+        let newY = currentPos.y + delta.height * snapUnit
+        return (0...1).contains(newX) && (0...1).contains(newY)
+    }
+
     /// Up / left / right / down arrow buttons arranged in a cross pattern.
     @ViewBuilder
     private var directionalControls: some View {
@@ -258,7 +269,7 @@ struct AdjustModeView: View {
     }
 
     /// A single arrow button that calls `vm.moveItem(id:by:snapInches:)`.
-    /// Disabled when no item is selected.
+    /// Greyed out when no item is selected or when the move would exceed the canvas boundary.
     @ViewBuilder
     private func directionButton(systemName: String, delta: CGSize) -> some View {
         Button(action: {
@@ -272,6 +283,6 @@ struct AdjustModeView: View {
                 .cornerRadius(Radius.sm)
         }
         .foregroundColor(Color(.label))
-        .disabled(vm.selectedPlacedItem == nil)
+        .disabled(!canNudge(delta))
     }
 }

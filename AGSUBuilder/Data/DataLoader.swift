@@ -99,4 +99,22 @@ class DataLoader: ObservableObject {
         }
         return rankInsignia.filter { $0.category == key }
     }
+
+    /// Looks up any selectable item by ID across ribbons, badges, ID badges, and tabs.
+    /// Rank and branch insignia are auto-placed from the soldier profile and are not returned here.
+    func findItem(id: String, awardCount: Int = 1, devices: [String] = []) -> UniformItem? {
+        if let r = ribbons.first(where: { $0.id == id }) {
+            return r.toUniformItem(awardCount: awardCount, devices: devices)
+        }
+        if let b = badges.first(where: { $0.id == id }) {
+            return b.toUniformItem(awardCount: awardCount)
+        }
+        if let ib = idBadges.first(where: { $0.id == id }) {
+            return ib.toUniformItem()
+        }
+        if let t = tabs.first(where: { $0.id == id }) {
+            return t.toUniformItem()
+        }
+        return nil
+    }
 }

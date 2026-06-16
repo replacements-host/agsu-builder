@@ -19,6 +19,9 @@ struct BuilderFlowView: View {
 
     let soldier: Soldier
 
+    @EnvironmentObject private var navCoordinator: NavigationCoordinator
+    @Environment(\.dismiss) private var dismiss
+
     /// Shared picker state across all five steps.
     @StateObject private var pickerVM: InsigniaPickerViewModel
     /// Current step index (0-based).
@@ -101,6 +104,7 @@ struct BuilderFlowView: View {
         }
         .navigationTitle(stepTitles[step])
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear { if navCoordinator.shouldReturnToHome { dismiss() } }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 if step < stepTitles.count - 1 {

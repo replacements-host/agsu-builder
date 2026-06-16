@@ -78,8 +78,8 @@ class CanvasViewModel: ObservableObject {
                 zoomScale  = 2.2
                 zoomOffset = CGSize(width: -60, height: -40)
             case .sleeves:
-                zoomScale  = 1.6
-                zoomOffset = CGSize(width: 0, height: 30)
+                zoomScale  = 1.5
+                zoomOffset = CGSize(width: 0, height: -70)
             }
         }
     }
@@ -121,9 +121,9 @@ class CanvasViewModel: ObservableObject {
         guard let idx = placedItems.firstIndex(where: { $0.id == id }) else { return }
         let snapUnit   = snapInches * soldier.coatVariant.geometry.normalizedUnitsPerInch
         let currentPos = placedItems[idx].adjustedPosition ?? placedItems[idx].regulationPosition
-        // Divide by reference canvas dimensions (390×844 ≈ iPhone 14 Pro points)
-        let newX = (currentPos.x + delta.width  / 390).rounded(to: snapUnit)
-        let newY = (currentPos.y + delta.height / 844).rounded(to: snapUnit)
+        // delta is a unit direction vector (±1, 0) — move exactly one snap increment
+        let newX = max(0, min(1, currentPos.x + delta.width  * snapUnit))
+        let newY = max(0, min(1, currentPos.y + delta.height * snapUnit))
         placedItems[idx].adjustedPosition = CGPoint(x: newX, y: newY)
     }
 

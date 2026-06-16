@@ -49,6 +49,8 @@
 		<string>BarlowCondensed-SemiBold.ttf</string>
 		<string>BarlowCondensed-Bold.ttf</string>
 	</array>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Save your AGSU uniform layout image to your Camera Roll.</string>
 	<key>NSPrivacyAccessedAPITypes</key>
 	<array></array>
 </dict>

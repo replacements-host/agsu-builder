@@ -13,6 +13,8 @@ import SwiftUI
 struct SavedUniformsView: View {
 
     @EnvironmentObject private var savedVM: SavedUniformsViewModel
+    @EnvironmentObject private var navCoordinator: NavigationCoordinator
+    @Environment(\.dismiss) private var dismiss
 
     @State private var renameTarget: SavedUniform? = nil
     @State private var renameText   = ""
@@ -37,6 +39,7 @@ struct SavedUniformsView: View {
         }
         .navigationTitle("Saved Uniforms")
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear { if navCoordinator.shouldReturnToHome { dismiss() } }
         // Rename alert
         .alert("Rename Uniform", isPresented: Binding(
             get: { renameTarget != nil },
@@ -57,7 +60,7 @@ struct SavedUniformsView: View {
             set: { if !$0 { navigateToCanvas = nil } }
         )) {
             if let uniform = navigateToCanvas {
-                CanvasView(soldier: uniform.toSoldier(), items: [])
+                CanvasView(soldier: uniform.toSoldier(), items: uniform.toUniformItems())
             }
         }
     }
