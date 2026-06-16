@@ -1,8 +1,14 @@
 import SwiftUI
 
+/// App launch screen.
+///
+/// Shows the app wordmark ("ARMY UNIFORM BUILDER · AGSU") and two navigation buttons:
+/// - **BUILD MY UNIFORM** → `ProfileSetupView` (starts a new uniform from scratch)
+/// - **SAVED UNIFORMS** → `SavedUniformsView` (browses previously saved uniforms)
+///
+/// A fine-print citation at the bottom credits DA PAM 670-1. The navigation bar is
+/// hidden so the wordmark fills the full screen.
 struct HomeView: View {
-    @State private var navigateToProfile = false
-    @State private var navigateToSaved = false
 
     var body: some View {
         NavigationStack {
@@ -12,6 +18,7 @@ struct HomeView: View {
                 VStack(spacing: Spacing.lg) {
                     Spacer()
 
+                    // App wordmark
                     VStack(spacing: Spacing.sm) {
                         Text("ARMY UNIFORM BUILDER")
                             .font(AppFont.bold(32))
@@ -29,6 +36,7 @@ struct HomeView: View {
 
                     Spacer()
 
+                    // Primary actions
                     VStack(spacing: Spacing.md) {
                         NavigationLink(destination: ProfileSetupView()) {
                             Text("BUILD MY UNIFORM")
@@ -54,6 +62,7 @@ struct HomeView: View {
                     }
                     .padding(.horizontal, Spacing.lg)
 
+                    // Regulation attribution
                     Text("Placement computed from DA PAM 670-1 · 26 Jan 2021")
                         .font(AppFont.caption)
                         .foregroundColor(Color(.tertiaryLabel))

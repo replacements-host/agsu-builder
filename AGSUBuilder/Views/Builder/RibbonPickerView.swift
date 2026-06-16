@@ -1,5 +1,12 @@
 import SwiftUI
 
+/// Searchable list of all ribbons eligible for the current soldier's component.
+///
+/// Ribbons are sorted by DA PAM 670-1 precedence (lower number = higher precedence).
+/// The user can search by full name or short name, toggle selection with a tap, and
+/// adjust the award count (1–9) with a stepper that appears when a ribbon is selected.
+/// Sorting by precedence is automatic — `PlacementEngine` reads the precedence field
+/// from `DataLoader.ribbons` to arrange the rack.
 struct RibbonPickerView: View {
     @ObservedObject var vm: InsigniaPickerViewModel
     @State private var searchText = ""
@@ -32,6 +39,8 @@ struct RibbonPickerView: View {
     }
 }
 
+/// A single ribbon list row with a color swatch placeholder, name, selection checkmark,
+/// and optional award-count stepper for multi-award ribbons.
 struct RibbonRow: View {
     let ribbon: RibbonRecord
     @ObservedObject var vm: InsigniaPickerViewModel
@@ -83,6 +92,8 @@ struct RibbonRow: View {
     }
 }
 
+/// Reusable search bar used across all picker views.
+/// Binds to an external `text` state and provides a clear button when non-empty.
 struct SearchBar: View {
     @Binding var text: String
     let placeholder: String

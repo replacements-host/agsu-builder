@@ -1,5 +1,10 @@
 import SwiftUI
 
+/// Picker for special skill tabs (DA PAM 670-1, para 22-16d).
+///
+/// Tabs are listed in `stackOrder` sequence — the order they are sewn on the
+/// left sleeve above the unit patch. An info banner reminds the user that tabs
+/// are sewn (not pinned) on the coat.
 struct TabPickerView: View {
     @ObservedObject var vm: InsigniaPickerViewModel
 

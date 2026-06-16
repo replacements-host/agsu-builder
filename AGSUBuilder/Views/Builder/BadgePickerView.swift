@@ -1,5 +1,11 @@
 import SwiftUI
 
+/// Grouped list of all badges eligible for the current soldier's branch and component.
+///
+/// Badges are organized into DA PAM 670-1 groups 1–5 with labeled section headers.
+/// Each group section is independently scrollable. Badge rows show an asset thumbnail
+/// (or placeholder), the regulation reference, eligible branch restrictions, and
+/// an optional award-count stepper for badges with `hasMultipleAwards == true`.
 struct BadgePickerView: View {
     @ObservedObject var vm: InsigniaPickerViewModel
 
@@ -39,6 +45,8 @@ struct BadgePickerView: View {
     }
 }
 
+/// A single badge row within `BadgePickerView`, showing thumbnail, name,
+/// regulation citation, branch eligibility note, and optional award stepper.
 struct BadgeRow: View {
     let badge: BadgeRecord
     @ObservedObject var vm: InsigniaPickerViewModel

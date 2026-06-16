@@ -1,5 +1,11 @@
 import SwiftUI
 
+/// Picker for Identification Badges (DA PAM 670-1, para 22-17).
+///
+/// Shows all ID badges eligible for the soldier's component. The pocket side
+/// ("Left" or "Right") is displayed as a subtitle — CSIB always goes on the right pocket.
+/// Selection is capped at **two badges** (one per pocket side) enforced by
+/// `InsigniaPickerViewModel.toggleIDBadge(_:)`.
 struct IDBadgePickerView: View {
     @ObservedObject var vm: InsigniaPickerViewModel
 

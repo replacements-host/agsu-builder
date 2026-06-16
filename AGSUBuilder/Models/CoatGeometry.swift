@@ -1,45 +1,101 @@
 import CoreGraphics
 
-/// Normalized coordinate anchors for each coat variant.
-/// All CGPoint values are in range (0,0) to (1,1) relative to the coat image bounding rect.
-/// Established by manual measurement of DA PAM 670-1 Figures 14-1 through 14-4.
+/// Normalized coordinate anchors for a single coat silhouette variant.
+///
+/// All `CGPoint` values are in the range (0,0)→(1,1) relative to the coat image's
+/// bounding rectangle. The origin (0,0) is the **top-left** corner.
+///
+/// **Calibration instructions (do once per variant per real coat image):**
+/// 1. Open the coat photograph (≥300 DPI) in an image editor.
+/// 2. Measure each anatomical landmark's pixel coordinates (px, py).
+/// 3. Set `point.x = px / imageWidth`, `point.y = py / imageHeight`.
+/// 4. Set `normalizedUnitsPerInch = (pocketWidthPx / imageWidth) / 4.5`
+///    (AGSU pocket is nominally 4.5 inches wide per the uniform specification).
+///
+/// **All values below are PLACEHOLDER presets** — they are intentionally approximate
+/// so the app compiles and renders something without real coat photography.
+/// Do not attempt to calibrate these values from the placeholder gray rectangles.
 struct CoatGeometry {
 
     // MARK: - Chest Anchors
-    let leftPocketTopCenter: CGPoint      // Ribbon rack: 1/8" above this point (para 22-6)
-    let leftPocketFlapTopCenter: CGPoint  // Badge anchor for pocket-flap badges (para 22-15d)
-    let rightPocketCenter: CGPoint        // ID badge center (para 22-17)
+
+    /// Center of the top edge of the left breast pocket.
+    /// Ribbon rack bottom edge sits 1/8 inch above this point (DA PAM 670-1, para 22-6c).
+    let leftPocketTopCenter: CGPoint
+
+    /// Center of the top edge of the left breast pocket flap.
+    /// Anchor for Group 4–5 (marksmanship) badge centering (para 22-15d3).
+    let leftPocketFlapTopCenter: CGPoint
+
+    /// Center of the right breast pocket.
+    /// CSIB ID badge is centered here (para 22-17).
+    let rightPocketCenter: CGPoint
 
     // MARK: - Lapel Anchors
-    let leftLapelCenter: CGPoint          // Branch insignia (officers); US insignia (enlisted)
-    let rightLapelCenter: CGPoint         // US insignia (officers); branch insignia (enlisted)
-    let leftLapelBoundaryX: CGFloat       // X position of lapel edge (for collision detection)
+
+    /// Lapel center point on wearer's left side.
+    /// Officers: branch insignia. Enlisted: branch insignia (US on right).
+    let leftLapelCenter: CGPoint
+
+    /// Lapel center point on wearer's right side.
+    /// Officers: branch insignia (mirrored). Enlisted: US insignia.
+    let rightLapelCenter: CGPoint
+
+    /// X-coordinate of the inner lapel edge on the left side.
+    /// Reserved for future collision-detection between lapel insignia and ribbon rack.
+    let leftLapelBoundaryX: CGFloat
 
     // MARK: - Shoulder Anchors
-    let leftShoulderLoopCenter: CGPoint   // DUI (enlisted); rank (officer) (para 21-7, 21-22)
+
+    /// Center of the left shoulder loop (epaulette).
+    /// Officer/WO rank insignia; also DUI for enlisted when on dress blues (not AGSU).
+    let leftShoulderLoopCenter: CGPoint
+
+    /// Center of the right shoulder loop (epaulette). Mirrors left.
     let rightShoulderLoopCenter: CGPoint
-    let leftShoulderSeamTop: CGPoint      // Tab placement reference (para 22-16)
+
+    /// Top of the left shoulder seam. Tab placement reference (para 22-16d).
+    let leftShoulderSeamTop: CGPoint
+
+    /// Top of the right shoulder seam. Mirrors left.
     let rightShoulderSeamTop: CGPoint
 
     // MARK: - Sleeve Anchors
-    let leftSleeveUpperPatchZone: CGPoint   // SSI current organization (para 21-16)
-    let rightSleeveUpperPatchZone: CGPoint  // SSI former wartime / combat patch
-    let leftSleeveServiceStripeOrigin: CGPoint  // Service stripes (para 21-28)
-    let rightSleeveOverseasBarOrigin: CGPoint   // Overseas service bars (para 21-29)
 
-    // MARK: - Collar Anchors (enlisted rank)
-    let leftCollarCenter: CGPoint   // Enlisted grade insignia (para 21-7)
+    /// Upper-left sleeve SSI zone (current unit patch — para 21-16).
+    let leftSleeveUpperPatchZone: CGPoint
+
+    /// Upper-right sleeve SSI zone (former wartime / combat patch).
+    let rightSleeveUpperPatchZone: CGPoint
+
+    /// Origin for the bottom-most service stripe on the left sleeve (para 21-28).
+    /// Stripes stack upward from this point at 1/4-inch intervals.
+    let leftSleeveServiceStripeOrigin: CGPoint
+
+    /// Origin for the bottom-most overseas bar on the right sleeve (para 21-29).
+    let rightSleeveOverseasBarOrigin: CGPoint
+
+    // MARK: - Collar Anchors
+
+    /// Center of the left collar point. Enlisted grade insignia worn here (para 21-7).
+    let leftCollarCenter: CGPoint
+
+    /// Center of the right collar point. Mirrors left.
     let rightCollarCenter: CGPoint
 
     // MARK: - Scale
-    /// How many normalized units equal one physical inch at this coat's scale
+
+    /// Number of normalized units (0–1 range) that equal one physical inch.
+    /// Derived from pocket width: `normalizedUnitsPerInch = pocketWidthNorm / 4.5`
     let normalizedUnitsPerInch: CGFloat
 
     // MARK: - Static Instances
-    // TODO: Calibrate these values by measuring DA PAM figures 14-1 through 14-4
-    // at 300 DPI. Each point = pixel_coordinate / image_width or image_height.
-    // normalizedUnitsPerInch = (pocket_pixel_width / image_width) / 4.5
 
+    // NOTE: All anchor values are PLACEHOLDER presets.
+    // Replace after measuring real coat photographs at ≥300 DPI.
+    // See calibration instructions in the struct-level doc comment above.
+
+    /// Officer male coat (DA PAM 670-1, Fig. 14-1). PLACEHOLDER geometry.
     static let officerMale = CoatGeometry(
         leftPocketTopCenter:            CGPoint(x: 0.42, y: 0.38), // PLACEHOLDER
         leftPocketFlapTopCenter:        CGPoint(x: 0.42, y: 0.42), // PLACEHOLDER
@@ -60,6 +116,7 @@ struct CoatGeometry {
         normalizedUnitsPerInch:         0.08                        // PLACEHOLDER
     )
 
+    /// Officer female coat (DA PAM 670-1, Fig. 14-2). PLACEHOLDER geometry.
     static let officerFemale = CoatGeometry(
         leftPocketTopCenter:            CGPoint(x: 0.43, y: 0.40), // PLACEHOLDER
         leftPocketFlapTopCenter:        CGPoint(x: 0.43, y: 0.44), // PLACEHOLDER
@@ -80,6 +137,7 @@ struct CoatGeometry {
         normalizedUnitsPerInch:         0.08                        // PLACEHOLDER
     )
 
+    /// Enlisted male coat (DA PAM 670-1, Fig. 14-3). PLACEHOLDER geometry.
     static let enlistedMale = CoatGeometry(
         leftPocketTopCenter:            CGPoint(x: 0.42, y: 0.39), // PLACEHOLDER
         leftPocketFlapTopCenter:        CGPoint(x: 0.42, y: 0.43), // PLACEHOLDER
@@ -100,6 +158,7 @@ struct CoatGeometry {
         normalizedUnitsPerInch:         0.08                        // PLACEHOLDER
     )
 
+    /// Enlisted female coat (DA PAM 670-1, Fig. 14-4). PLACEHOLDER geometry.
     static let enlistedFemale = CoatGeometry(
         leftPocketTopCenter:            CGPoint(x: 0.43, y: 0.41), // PLACEHOLDER
         leftPocketFlapTopCenter:        CGPoint(x: 0.43, y: 0.45), // PLACEHOLDER

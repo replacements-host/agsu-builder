@@ -1,12 +1,23 @@
 import SwiftUI
 
+/// Half-sheet that shows the regulation citation, measurements, and options for a tapped item.
+///
+/// Presented as a `.medium` detent sheet from `CanvasView` when the user taps
+/// a `PlacedItem`. The sheet includes:
+/// - The DA PAM 670-1 paragraph reference
+/// - Item thumbnail (from asset catalog, or gray placeholder)
+/// - Bullet-point measurement specs
+/// - Out-of-policy warning when `item.isOutOfPolicy == true`
+/// - "Adjust This Item →" button that closes the sheet and opens `AdjustModeView`
+/// - "Report placement error" link that opens a `mailto:` draft via `ErrorReportView`
 struct RegulationSheetView: View {
+
     let item: PlacedItem
     @Binding var isPresented: Bool
+    /// Callback invoked when the user taps "Adjust This Item →".
     let onAdjust: () -> Void
 
     @State private var showErrorReport = false
-    @State private var errorText = ""
 
     var body: some View {
         NavigationStack {
@@ -26,14 +37,13 @@ struct RegulationSheetView: View {
 
                     Divider()
 
-                    // Item name
+                    // Item name derived from the id string
                     Text(item.item.id.replacingOccurrences(of: "_", with: " ").uppercased())
                         .font(AppFont.bold(24))
                         .foregroundColor(Color(.label))
 
-                    // Image + description
+                    // Thumbnail + measurement bullets
                     HStack(alignment: .top, spacing: Spacing.md) {
-                        // Image placeholder
                         RoundedRectangle(cornerRadius: 8)
                             .fill(Color(.systemGray5))
                             .overlay(
@@ -68,6 +78,7 @@ struct RegulationSheetView: View {
                         }
                     }
 
+                    // Out-of-policy warning banner
                     if item.isOutOfPolicy {
                         HStack(spacing: Spacing.sm) {
                             Image(systemName: "exclamationmark.triangle.fill")
@@ -85,7 +96,7 @@ struct RegulationSheetView: View {
 
                     Divider()
 
-                    // Action buttons
+                    // Action row
                     HStack {
                         Button("Close") { isPresented = false }
                             .font(AppFont.buttonLabel)
@@ -101,14 +112,12 @@ struct RegulationSheetView: View {
                         .foregroundColor(.brandGold)
                     }
 
-                    // Error report link
-                    Button("Report placement error") {
-                        showErrorReport = true
-                    }
-                    .font(AppFont.caption)
-                    .foregroundColor(Color(.tertiaryLabel))
-                    .frame(maxWidth: .infinity)
-                    .padding(.top, Spacing.sm)
+                    // Error report link — opens ErrorReportView as a nested sheet
+                    Button("Report placement error") { showErrorReport = true }
+                        .font(AppFont.caption)
+                        .foregroundColor(Color(.tertiaryLabel))
+                        .frame(maxWidth: .infinity)
+                        .padding(.top, Spacing.sm)
                 }
                 .padding(Spacing.lg)
             }
@@ -122,7 +131,15 @@ struct RegulationSheetView: View {
     }
 }
 
+// MARK: - ErrorReportView
+
+/// A form that pre-fills item details and opens a `mailto:` draft when submitted.
+///
+/// Collected fields: item id, regulation ref, grade, branch, and a free-text
+/// description of the placement error. Useful for crowd-sourced regulation
+/// correctness before automating a TIOH fetch pipeline.
 struct ErrorReportView: View {
+
     let item: PlacedItem
     @Binding var isPresented: Bool
     @State private var errorText = ""
@@ -131,10 +148,10 @@ struct ErrorReportView: View {
         NavigationStack {
             Form {
                 Section("PRE-FILLED INFORMATION") {
-                    LabeledContent("Item", value: item.item.id.replacingOccurrences(of: "_", with: " ").capitalized)
+                    LabeledContent("Item",       value: item.item.id.replacingOccurrences(of: "_", with: " ").capitalized)
                     LabeledContent("Regulation", value: item.regulationRef)
-                    LabeledContent("Grade", value: item.soldier.grade)
-                    LabeledContent("Branch", value: item.soldier.branch.capitalized)
+                    LabeledContent("Grade",      value: item.soldier.grade)
+                    LabeledContent("Branch",     value: item.soldier.branch.capitalized)
                 }
                 Section("WHAT'S WRONG?") {
                     TextEditor(text: $errorText)
@@ -162,10 +179,18 @@ struct ErrorReportView: View {
         .presentationDetents([.medium, .large])
     }
 
+    /// Opens a `mailto:` URL pre-filled with item metadata and the user's error description.
     private func submitError() {
-        // Open mailto: link for error reporting
         let subject = "Placement Error: \(item.item.id) — \(item.regulationRef)"
-        let body = "Item: \(item.item.id)\nRegulation: \(item.regulationRef)\nGrade: \(item.soldier.grade)\nBranch: \(item.soldier.branch)\n\nIssue:\n\(errorText)"
+        let body = """
+            Item: \(item.item.id)
+            Regulation: \(item.regulationRef)
+            Grade: \(item.soldier.grade)
+            Branch: \(item.soldier.branch)
+
+            Issue:
+            \(errorText)
+            """
         let encoded = "mailto:support@agsubuilder.app?subject=\(subject)&body=\(body)"
             .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         if let url = URL(string: encoded) {

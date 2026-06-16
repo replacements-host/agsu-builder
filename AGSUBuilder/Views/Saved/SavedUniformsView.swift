@@ -1,12 +1,29 @@
 import SwiftUI
 import SwiftData
 
+/// Lists all saved uniforms in reverse-update order.
+///
+/// Backed by a `@Query` (not by `SavedUniformsViewModel.uniforms`) so SwiftData
+/// automatically keeps the list in sync with the store. Write operations
+/// (delete, rename) are delegated to `SavedUniformsViewModel` which requires
+/// a `ModelContext` from the environment.
+///
+/// **Interactions:**
+/// - **Tap** — navigates to `CanvasView` re-loaded from the saved soldier profile.
+/// - **Long press** — presents a rename alert.
+/// - **Swipe to delete** — removes the uniform from the store immediately.
+///
+/// The empty state view is shown automatically when the `@Query` result is empty.
 struct SavedUniformsView: View {
+
+    /// Fetched results sorted by `updatedAt` descending (most recent first).
     @Query(sort: \SavedUniform.updatedAt, order: .reverse) private var uniforms: [SavedUniform]
     @Environment(\.modelContext) private var modelContext
+
     @StateObject private var vm = SavedUniformsViewModel()
+
     @State private var renameTarget: SavedUniform? = nil
-    @State private var renameText = ""
+    @State private var renameText   = ""
     @State private var navigateToCanvas: SavedUniform? = nil
 
     var body: some View {
@@ -28,6 +45,7 @@ struct SavedUniformsView: View {
         }
         .navigationTitle("Saved Uniforms")
         .navigationBarTitleDisplayMode(.inline)
+        // Rename alert
         .alert("Rename Uniform", isPresented: Binding(
             get: { renameTarget != nil },
             set: { if !$0 { renameTarget = nil } }
@@ -41,6 +59,7 @@ struct SavedUniformsView: View {
             }
             Button("Cancel", role: .cancel) { renameTarget = nil }
         }
+        // Navigation to canvas — re-builds from saved soldier data
         .navigationDestination(isPresented: Binding(
             get: { navigateToCanvas != nil },
             set: { if !$0 { navigateToCanvas = nil } }
@@ -51,6 +70,9 @@ struct SavedUniformsView: View {
         }
     }
 
+    // MARK: - Row
+
+    /// A single list row showing name, grade/branch, and last-modified date.
     @ViewBuilder
     private func uniformRow(_ uniform: SavedUniform) -> some View {
         HStack {
@@ -71,13 +93,12 @@ struct SavedUniformsView: View {
                 .foregroundColor(Color(.tertiaryLabel))
         }
         .contentShape(Rectangle())
-        .onTapGesture { navigateToCanvas = uniform }
-        .onLongPressGesture {
-            renameTarget = uniform
-            renameText = uniform.name
-        }
+        .onTapGesture       { navigateToCanvas = uniform }
+        .onLongPressGesture { renameTarget = uniform; renameText = uniform.name }
         .padding(.vertical, 4)
     }
+
+    // MARK: - Empty State
 
     @ViewBuilder
     private var emptyState: some View {

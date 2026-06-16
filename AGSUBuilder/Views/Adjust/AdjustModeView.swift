@@ -1,29 +1,51 @@
 import SwiftUI
 
+/// Manual position-correction screen for individual placed items.
+///
+/// The user selects an item by tapping the embedded mini-canvas, then uses the
+/// four directional arrow buttons to nudge it in 1/16", 1/8", or 1/4" increments.
+/// A context-sensitive ribbon rack configuration panel appears when any ribbon
+/// item is selected, enabling live changes to ribbons-per-row, row spacing,
+/// top-row alignment, and Group 3 badge position.
+///
+/// When the adjusted position exceeds the gender-appropriate out-of-policy threshold
+/// (1/8" male, 1/4" female) an amber warning banner is displayed at the top of the screen.
+///
+/// "Reset to policy" clears any override and snaps the item back to its
+/// regulation-derived anchor point.
 struct AdjustModeView: View {
+
     @ObservedObject var vm: CanvasViewModel
     @Environment(\.dismiss) private var dismiss
 
+    /// Currently selected snap grid increment for directional nudge buttons.
     @State private var snapIncrement: SnapIncrement = .eighthInch
 
+    // MARK: - SnapIncrement
+
+    /// Directional nudge step sizes available in the segmented control.
     enum SnapIncrement: String, CaseIterable {
         case sixteenthInch = "1/16\""
-        case eighthInch = "1/8\""
-        case quarterInch = "1/4\""
+        case eighthInch    = "1/8\""
+        case quarterInch   = "1/4\""
 
         var inches: CGFloat {
             switch self {
-            case .sixteenthInch: return 1.0/16.0
-            case .eighthInch:    return 1.0/8.0
-            case .quarterInch:   return 1.0/4.0
+            case .sixteenthInch: return 1.0 / 16.0
+            case .eighthInch:    return 1.0 /  8.0
+            case .quarterInch:   return 1.0 /  4.0
             }
         }
     }
 
+    // MARK: - Convenience
+
     private var selectedItem: PlacedItem? { vm.selectedPlacedItem }
-    private var isRibbonRackSelected: Bool {
-        selectedItem?.item.category == .ribbon
-    }
+
+    /// `true` when a ribbon is selected — shows the ribbon rack configuration panel.
+    private var isRibbonRackSelected: Bool { selectedItem?.item.category == .ribbon }
+
+    // MARK: - Body
 
     var body: some View {
         VStack(spacing: 0) {
@@ -44,26 +66,25 @@ struct AdjustModeView: View {
                 .background(Color.brandAmber.opacity(0.12))
             }
 
-            // Canvas
+            // Mini canvas (tap to select items)
             GeometryReader { geo in
-                let canvasSize = geo.size
                 ZStack {
                     CoatLayerView(coatVariant: vm.soldier.coatVariant)
                     InsigniaLayerView(
-                        placedItems: vm.placedItems,
+                        placedItems:    vm.placedItems,
                         selectedItemID: vm.selectedPlacedItem?.id,
-                        canvasSize: canvasSize
+                        canvasSize:     geo.size
                     )
                 }
             }
             .clipped()
 
-            // Configuration panel for ribbon rack
+            // Ribbon rack options panel (visible only when a ribbon is selected)
             if isRibbonRackSelected {
                 ribbonConfigPanel
             }
 
-            // Selected item label + reset
+            // Selected item label + reset button
             if let item = selectedItem {
                 HStack {
                     VStack(alignment: .leading, spacing: 2) {
@@ -76,11 +97,9 @@ struct AdjustModeView: View {
                             .lineLimit(1)
                     }
                     Spacer()
-                    Button("Reset to policy") {
-                        vm.resetToPolicy(id: item.id)
-                    }
-                    .font(AppFont.bodySecondary)
-                    .foregroundColor(.brandGold)
+                    Button("Reset to policy") { vm.resetToPolicy(id: item.id) }
+                        .font(AppFont.bodySecondary)
+                        .foregroundColor(.brandGold)
                 }
                 .padding(.horizontal, Spacing.md)
                 .padding(.top, Spacing.sm)
@@ -91,15 +110,13 @@ struct AdjustModeView: View {
                     .padding(.top, Spacing.sm)
             }
 
-            // Snap increment picker
+            // Snap increment selector
             HStack {
                 Text("SNAP:")
                     .font(AppFont.sectionHeader)
                     .foregroundColor(Color(.secondaryLabel))
                 Picker("Snap", selection: $snapIncrement) {
-                    ForEach(SnapIncrement.allCases, id: \.self) {
-                        Text($0.rawValue).tag($0)
-                    }
+                    ForEach(SnapIncrement.allCases, id: \.self) { Text($0.rawValue).tag($0) }
                 }
                 .pickerStyle(.segmented)
                 .font(AppFont.caption)
@@ -107,7 +124,7 @@ struct AdjustModeView: View {
             .padding(.horizontal, Spacing.md)
             .padding(.top, Spacing.sm)
 
-            // Directional controls
+            // Directional arrow buttons
             directionalControls
                 .padding(Spacing.md)
         }
@@ -122,6 +139,10 @@ struct AdjustModeView: View {
         }
     }
 
+    // MARK: - Ribbon Config Panel
+
+    /// Live-updating pickers for ribbon rack configuration options.
+    /// Each picker calls `vm.updateConfiguration(_:)` which immediately reruns the engine.
     @ViewBuilder
     private var ribbonConfigPanel: some View {
         VStack(spacing: Spacing.sm) {
@@ -134,12 +155,14 @@ struct AdjustModeView: View {
                 configRow("Ribbons per row") {
                     Picker("", selection: Binding(
                         get: { vm.configuration.ribbonsPerRow },
-                        set: { vm.updateConfiguration(UniformConfiguration(
-                            ribbonsPerRow: $0,
-                            ribbonRowSpacing: vm.configuration.ribbonRowSpacing,
-                            ribbonTopRowAlignment: vm.configuration.ribbonTopRowAlignment,
-                            badgeGroupThreePosition: vm.configuration.badgeGroupThreePosition
-                        )) }
+                        set: { newVal in
+                            vm.updateConfiguration(UniformConfiguration(
+                                ribbonsPerRow:            newVal,
+                                ribbonRowSpacing:         vm.configuration.ribbonRowSpacing,
+                                ribbonTopRowAlignment:    vm.configuration.ribbonTopRowAlignment,
+                                badgeGroupThreePosition:  vm.configuration.badgeGroupThreePosition
+                            ))
+                        }
                     )) {
                         Text("3").tag(3)
                         Text("4").tag(4)
@@ -150,12 +173,14 @@ struct AdjustModeView: View {
                 configRow("Row spacing") {
                     Picker("", selection: Binding(
                         get: { vm.configuration.ribbonRowSpacing },
-                        set: { vm.updateConfiguration(UniformConfiguration(
-                            ribbonsPerRow: vm.configuration.ribbonsPerRow,
-                            ribbonRowSpacing: $0,
-                            ribbonTopRowAlignment: vm.configuration.ribbonTopRowAlignment,
-                            badgeGroupThreePosition: vm.configuration.badgeGroupThreePosition
-                        )) }
+                        set: { newVal in
+                            vm.updateConfiguration(UniformConfiguration(
+                                ribbonsPerRow:            vm.configuration.ribbonsPerRow,
+                                ribbonRowSpacing:         newVal,
+                                ribbonTopRowAlignment:    vm.configuration.ribbonTopRowAlignment,
+                                badgeGroupThreePosition:  vm.configuration.badgeGroupThreePosition
+                            ))
+                        }
                     )) {
                         Text("None").tag("none")
                         Text("1/8\"").tag("eighth_inch")
@@ -166,12 +191,14 @@ struct AdjustModeView: View {
                 configRow("Top row") {
                     Picker("", selection: Binding(
                         get: { vm.configuration.ribbonTopRowAlignment },
-                        set: { vm.updateConfiguration(UniformConfiguration(
-                            ribbonsPerRow: vm.configuration.ribbonsPerRow,
-                            ribbonRowSpacing: vm.configuration.ribbonRowSpacing,
-                            ribbonTopRowAlignment: $0,
-                            badgeGroupThreePosition: vm.configuration.badgeGroupThreePosition
-                        )) }
+                        set: { newVal in
+                            vm.updateConfiguration(UniformConfiguration(
+                                ribbonsPerRow:            vm.configuration.ribbonsPerRow,
+                                ribbonRowSpacing:         vm.configuration.ribbonRowSpacing,
+                                ribbonTopRowAlignment:    newVal,
+                                badgeGroupThreePosition:  vm.configuration.badgeGroupThreePosition
+                            ))
+                        }
                     )) {
                         Text("Centered").tag("centered")
                         Text("Left").tag("left")
@@ -182,12 +209,14 @@ struct AdjustModeView: View {
                 configRow("Group 3 badge") {
                     Picker("", selection: Binding(
                         get: { vm.configuration.badgeGroupThreePosition },
-                        set: { vm.updateConfiguration(UniformConfiguration(
-                            ribbonsPerRow: vm.configuration.ribbonsPerRow,
-                            ribbonRowSpacing: vm.configuration.ribbonRowSpacing,
-                            ribbonTopRowAlignment: vm.configuration.ribbonTopRowAlignment,
-                            badgeGroupThreePosition: $0
-                        )) }
+                        set: { newVal in
+                            vm.updateConfiguration(UniformConfiguration(
+                                ribbonsPerRow:            vm.configuration.ribbonsPerRow,
+                                ribbonRowSpacing:         vm.configuration.ribbonRowSpacing,
+                                ribbonTopRowAlignment:    vm.configuration.ribbonTopRowAlignment,
+                                badgeGroupThreePosition:  newVal
+                            ))
+                        }
                     )) {
                         Text("Above").tag("above")
                         Text("Below").tag("below")
@@ -201,6 +230,7 @@ struct AdjustModeView: View {
         .background(Color(.secondarySystemBackground))
     }
 
+    /// A labeled row containing an arbitrary picker or control.
     @ViewBuilder
     private func configRow<Content: View>(_ label: String, @ViewBuilder content: () -> Content) -> some View {
         HStack {
@@ -212,18 +242,23 @@ struct AdjustModeView: View {
         }
     }
 
+    // MARK: - Directional Controls
+
+    /// Up / left / right / down arrow buttons arranged in a cross pattern.
     @ViewBuilder
     private var directionalControls: some View {
         VStack(spacing: Spacing.xs) {
-            directionButton(systemName: "arrow.up", delta: CGSize(width: 0, height: -1))
+            directionButton(systemName: "arrow.up",    delta: CGSize(width:  0, height: -1))
             HStack(spacing: Spacing.xl) {
-                directionButton(systemName: "arrow.left", delta: CGSize(width: -1, height: 0))
-                directionButton(systemName: "arrow.right", delta: CGSize(width: 1, height: 0))
+                directionButton(systemName: "arrow.left",  delta: CGSize(width: -1, height:  0))
+                directionButton(systemName: "arrow.right", delta: CGSize(width:  1, height:  0))
             }
-            directionButton(systemName: "arrow.down", delta: CGSize(width: 0, height: 1))
+            directionButton(systemName: "arrow.down",  delta: CGSize(width:  0, height:  1))
         }
     }
 
+    /// A single arrow button that calls `vm.moveItem(id:by:snapInches:)`.
+    /// Disabled when no item is selected.
     @ViewBuilder
     private func directionButton(systemName: String, delta: CGSize) -> some View {
         Button(action: {

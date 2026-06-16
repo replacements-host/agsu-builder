@@ -1,5 +1,18 @@
 import SwiftUI
 
+/// Step 5 of the builder flow: collects service stripe and overseas bar counts.
+///
+/// **Service stripes** (left sleeve, DA PAM 670-1, para 21-28):
+/// Each gold stripe represents 3 years of active federal service.
+/// The stepper allows 0–20 stripes. A visual preview of gold bars is shown.
+///
+/// **Overseas service bars** (right sleeve, DA PAM 670-1, para 21-29):
+/// Each bar represents one 6-month tour in a hostile fire / imminent danger pay area.
+/// The stepper allows 0–20 bars.
+///
+/// Both counts are stored in `InsigniaPickerViewModel` and emitted as
+/// `UniformItem` values in `allSelectedItems` with `.serviceStripe(count:)` and
+/// `.overseasBar(count:)` categories.
 struct ServiceStripeView: View {
     @ObservedObject var vm: InsigniaPickerViewModel
 
